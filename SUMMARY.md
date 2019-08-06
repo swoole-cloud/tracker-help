@@ -7,3 +7,4 @@
 * [首页(应用列表)](application-list.md)
 * [应用监控](application-monitoring.md)
 * [应用追踪](application-tracking.md)
+* [调试器](debuger.md)
