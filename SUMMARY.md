@@ -1,1 +1,1 @@
-* [空白目录](default.md)
+* [安装说明](installation.md)
