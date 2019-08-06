@@ -1,5 +1,11 @@
 {
+    "theme": "gitscm",
     "plugins": [
         "highlight"
-    ]
+    ],
+    "pluginsConfig": {
+        "highlight": {
+            "defaultLanguage": "markup"
+        }
+    }
 }
