@@ -28,7 +28,7 @@ apm.sampling_rate=100
 ![](images/screenshot_1565061773976.png)
 
 * 查看服务端版本
-    ![](images/screenshot_1565061881319.png)
+![](images/screenshot_1565061881319.png)
 
 ## 1\. 找不到对应应用
 
