@@ -1,5 +1,7 @@
 # 名词解释
 
+[TOC]
+
 ## 项目
 
 在整个系统中，可以分为多个项目，比如默认项目、基础项目等等，用来区分不同类型，不同层次的项目。
@@ -12,15 +14,14 @@
 
 ### 应用图标说明
 
-![image.png](https://cdn.nlark.com/yuque/0/2019/png/244438/1554089868996-4db4f94f-764b-42a9-8c06-f34d51f9ae2a.png "image.png")![image.png](https://cdn.nlark.com/yuque/0/2019/png/244438/1554089892881-3bb0c4db-6081-49ff-8ea5-b67f72bb0ca6.png "image.png")
-
-蓝色(#1F6FB5)表示 `WEB` 应用
-
-橙黄色(#FCD692)表示 `Service` 应用
+![](images/screenshot_1565060822137.png)
 
 正方形表示自动创建应用
-
 圆形表示手动添加应用
+
+![](images/screenshot_1565060835459.png)
+蓝色(#1F6FB5)表示 `WEB` 应用
+橙黄色(#FCD692)表示 `Service` 应用
 
 ## 主调、被调
 
