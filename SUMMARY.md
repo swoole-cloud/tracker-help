@@ -1,2 +1,8 @@
-[TOC]
-* [安装说明](%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E.md)
+* [安装说明](installation.md)
+    * [服务端](installation/server.md)
+    * [客户端](installation/client.md)
+    * [上报监控数据](installation/reprot.md)
+* [名词解释](noun-interpretation.md)
+* [常见问题](QA.md)
+* [首页(应用列表)](application-list.md)
+* [应用监控](application-monitoring.md)
