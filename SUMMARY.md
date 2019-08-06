@@ -9,3 +9,4 @@
 * [应用追踪](application-tracking.md)
 * [调试器](debuger.md)
 * [机器信息](sysinfo.md)
+* [报警管理](alert.md)
