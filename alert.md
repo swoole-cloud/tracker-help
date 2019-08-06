@@ -8,27 +8,24 @@
 
 本系统报警目前支持微信公众号、企业微信、钉钉群、短信通知
 
-> 默认使用我司微信公众号推送，需要关注`SwooleService`公众号获取用户`id`
->
-> ![img](images/1552193720475-61006895-d357-48ef-a5d0-55aa335a29ea.jpeg)
->
+>[success] 默认使用我司微信公众号推送，需要关注`SwooleService`公众号获取用户`id`
+> ![](images/1552193720475-61006895-d357-48ef-a5d0-55aa335a29ea.jpeg)
 > 关注后会收到如：您好！欢迎关注`SwooleService`服务号。 您的用户id: `FQY4Vansnxegm0G7t3RVgbn+ID33j/8ysnGso+gJqG0=`
->
 > 在后台处填写此`id`可用于监控报警等功能
 
-- 添加报警方式
+* 添加报警方式
 
 填写对应的名称，以及接口地址
 
-> [http://notifyapi.swoole-cloud.com?appid=123&type=mp](http://notifyapi.swoole-cloud.com/?appid=123&type=mp)此地址为我司默认推送地址
+>[info] http://notifyapi.swoole-cloud.com?appid=123&type=mp 此地址为我司默认推送地址
 
-![img](images/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10-20190806123912938.jpeg)
+![](images/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10-20190806123912938.jpeg)
 
 可自定义推送地址，发送报警消息的方式为向此地址发送`POST`请求，请求的格式为`json`字符串，包括`msg`和`userinfo`字段，可自行处理报警信息
 
 `json`格式如下：
 
-```
+```json
 {
     "msg":
     {
@@ -59,7 +56,7 @@
 }
 ```
 
-- 删除报警方式
+* 删除报警方式
 
 无需删除，将此方式设置为无效即可
 
@@ -67,7 +64,7 @@
 
 报警组为设置需要给`那些人员`通过`哪种方式`推送报警消息
 
-![img](images/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10.jpeg)
+![](images/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10.jpeg)
 
 报警人员可设置多个，用户从用户列表中获取
 报警类型也可设置多个，报警类型为上方添加的报警方式
@@ -76,13 +73,13 @@
 
 报警模板是来设置报警规则的，支持监控应用、接口、以及客户端机器
 
-![img](images/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10-20190806123913218.jpeg)
+![](images/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10-20190806123913218.jpeg)
 
-- 应用&接口
+* 应用&接口
 
 应用和接口支持设置成功率、失败率、响应时间、请求数，可同时配置多条规则
 
-- 机器
+* 机器
 
 目前机器监控支持`CPU`使用率、可用内存剩余率、磁盘容量
 
@@ -90,4 +87,4 @@
 
 报警列表为最终的报警设置，选择需要监控的类型（应用、接口、机器），选择后再选择对应的监控对象，选择对应的报警模板，报警组即可
 
-![img](images/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10-20190806123913203.jpeg)
+![](images/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10-20190806123913203.jpeg)
