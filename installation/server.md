@@ -30,7 +30,7 @@ dnf install docker-ce
 
 ## 关闭Admin后台
 
-在`swoole-admin-docker`目录执行 `./rm.sh`
+在`swoole-admin-docker`目录执行`./rm.sh`
 
 ## 重装
 
