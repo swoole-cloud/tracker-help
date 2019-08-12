@@ -1,7 +1,6 @@
 {
     "plugins": [
         "highlight",
-        "comment",
         "image-zoom"
     ],
     "pluginsConfig": {
