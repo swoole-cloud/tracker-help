@@ -2,7 +2,7 @@
 [TOC]
 ## 直接部署
 
-### 1\. 安装对应的 `swoole_plus` 扩展
+### 1. 安装对应的 `swoole_plus` 扩展
 
 php.ini中需增加配置项目
 
@@ -15,11 +15,13 @@ apm.sampling_rate=10  #采样率
 apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 ```
 
-### 2\. 卸载xdebug扩展
+### 2. 卸载不兼容扩展
 
-因为xdebug会影响 `swoole_plus` 扩展，致使数据上报失败。
+1. xdebug
+2. ioncube loader
+3. zend guard loader
 
-### 3\. 运行
+### 3. 运行
 
 在命令行中执行 `./deploy_env.sh 127.0.0.1`。(`127.0.0.1`为admin后台的机器ip)
 
