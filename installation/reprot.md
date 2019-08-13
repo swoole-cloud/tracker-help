@@ -2,6 +2,8 @@
 
 [TOC]
 
+>[danger] 上报成功后在后台查看，需要切换当前项目，默认在默认项目中
+
 ## Fpm应用
 
 ### 自动创建应用
@@ -12,7 +14,7 @@
 
 在服务端->系统管理->相应项目->应用管理->新增应用 应用名即为您要监控站点的域名，如有端口请加上端口。
 
->[info] 例如：您想监控的站点域名为www.test.com，服务名则填www.test.com（注意：域名若带端口，服务名也要带端口）
+>[info] 例如：[您想监控的站点域名为www.test.com](http://xn--www-c88d89xw6f1yrfrau8q941bclnm0an79a.test.com)，[服务名则填www.test.com](http://xn--www-lh2e9xi2ewtmet5a.test.com)（注意：域名若带端口，服务名也要带端口）
 
 配置完成后，稍等片刻即可查看对应的监控数据
 
@@ -32,6 +34,7 @@
 ### 手动上报指南
 
 需要手动添加埋点代码：
+
 ```php
 /**
  * 请求服务前执行
@@ -77,6 +80,7 @@ $tick = \StatsCenter::beforeExecRpc($func, $serviceName, $serverIp);
 微服务框架一般都有统一的服务入口，在`B`的服务入口处(开始)加上`beforeExecRpc()`方法，服务出口处(结束)加上`afterExecRpc()`方法。此时后台可以统计到`B`被调用的所有链路信息，例如这次调用的 `mysql` `redis` 等调用都会在`afterExecRpc()`后上报，这组函数是站在被调用端角度的。
 
 ### 透传TraceId/SpanId
+
 ```php
 /**
  * 被调用开始前执行
