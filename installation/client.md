@@ -1,5 +1,7 @@
 # 客户端
+
 [TOC]
+
 ## 直接部署
 
 ### 1. 安装对应的 `swoole_plus` 扩展
@@ -26,6 +28,8 @@ apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 在命令行中执行 `./deploy_env.sh 127.0.0.1`。(`127.0.0.1`为admin后台的机器ip)
 
 ## 在Docker部署
+
+>[danger] 请注意修改相关路径为你自己的路径！！！
 
 在docker环境部署需要修改Dockerfile或者docker-compose.yml或者在`docekr run`命令中添加参数，以下以采用官方docker-compose v3.7配置文件格式，php:fpm-7.x(-alpine)镜像为例，描述如何在docker部署
 
@@ -92,7 +96,9 @@ docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextensi
 对于seccomp，可以修改seccomp配置，或关闭seccomp配置（不推荐，这将导致docker内程序可以执行create\_module，kexec\_load等危险系统调用）
 
 ### 修改seccomp配置
+
 修改seccomp配置文件（修改自[默认文件](https://github.com/moby/moby/blob/master/profiles/seccomp/default.json))）:
+
 ```bash
 --- a.json
 +++ b.json
@@ -132,11 +138,13 @@ docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextensi
 ```
 
 在docker run使用该seccomp并给予SYS\_PTRACE权限：
+
 ```bash
 docker run --other-arguments --cap-add=SYS_PTRACE --security-opt seccomp=/path/to/that/modified/profile.json ...
 ```
 
 或docker-compose.yml中:
+
 ```yml
 # 在docker-compose.yml中：
 services:
@@ -160,6 +168,7 @@ services:
 ## 单独的NodeAgent容器（高级用法）
 
 此处提供一种单独运行的方法，仅供参考：
+
 ```bash
 # 在host安装nodeagent（或者手动安装/opt/swoole的文件）
 cd /some/place/dashbard/node-agent
