@@ -106,7 +106,9 @@ systemctl restart node-agent
 
 ## 10. 加载扩展后报错`undefined symbol: php_pdo_get_exception`
 
-扩展需要放在pdo扩展后面加载。
+扩展需要放在pdo扩展后面加载。使用`php --ini | grep "Scan for additional .ini files in:"`查看第三方加载目录，在此目录中创建一个`swoole_plus`的配置
+![](images/screenshot_1565858532049.png)
+
 
 ## 11. 加载扩展后报错`undefined symbol: compiler_globals in Unknown`
 
