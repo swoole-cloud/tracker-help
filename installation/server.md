@@ -49,4 +49,4 @@ dnf install docker-ce
 
 ## 访问后台
 
-运行`./run.sh`后 直接访问当前机器的ip:9666(或自定义的)端口即可，默认用户名是`admin`密码`admin`
+运行`./run.sh`后 直接访问当前机器的ip:9666(或自定义的端口)即可，默认用户名是`admin`密码为`admin`
