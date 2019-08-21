@@ -14,5 +14,5 @@
 
 ## 交流群
 
-如果添加不上交流群，可以添加客服微信说明添加SwooleTracker交流群
+如果添加不上交流群，可以添加客服微信并说明加入SwooleTracker交流群
 ![](images/swoole-tracker-weixin.png =400x)
