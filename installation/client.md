@@ -11,7 +11,7 @@ php.ini中需增加配置项目
 ```ini
 extension=swoole_plus.so 
 apm.enable=1           #打开总开关
-apm.sampling_rate=10  #采样率
+apm.sampling_rate=100  #采样率 100%
 
 # 手动埋点时再添加
 apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
