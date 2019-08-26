@@ -82,6 +82,9 @@ systemctl restart node-agent
 
 >[warning] 如果使用的是 `lnmp` 一键安装包，并且版本大于 `1.4` 可以直接使用 `lnmp` 安装包 `tools/` 目录下的 `./remove_open_basedir_restriction.sh` 进行移除，其他版本[查看lnmp官方文档](https://lnmp.org/faq/lnmp-vhost-add-howto.html#user.ini)说明处理
 
+>[danger] 如果使用的是宝塔集成环境，当你新增网站或修改网站配置时会自动开启防跨站攻击(open_basedir)，需要进行关闭
+![](images/bt-open_basedir.png)
+
 ## 6. 增加调试器中的相关代码后报错： `Fatal error: Uncaught Exception: plz set apm.enable_memcheck=1 which in php.ini`
 
 解决方法：在 `php.ini` 中添加配置： `apm.enable_memcheck=1`
