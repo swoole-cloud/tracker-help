@@ -4,12 +4,12 @@
 
 ## 直接部署
 
-### 1. 安装对应的 `swoole_plus` 扩展
+### 1. 安装对应的`swoole_trakcer`扩展
 
 php.ini中需增加配置项目
 
 ```ini
-extension=swoole_plus.so 
+extension=swoole_trakcer.so 
 apm.enable=1           #打开总开关
 apm.sampling_rate=100  #采样率 100%
 
@@ -33,22 +33,22 @@ apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 
 在docker环境部署需要修改Dockerfile或者docker-compose.yml或者在`docekr run`命令中添加参数，以下以采用官方docker-compose v3.7配置文件格式，php:fpm-7.x(-alpine)镜像为例，描述如何在docker部署
 
-### 修改Dockerfile以部署node-agent
+### 修改Dockerfile以部署tracker-agent
 
-在Dockerfile中执行deploy\_env.sh 来部署node-agent，然后在entrypoint中添加node-agent，例如
+在Dockerfile中执行deploy_env.sh 来部署tracker-agent，然后在entrypoint中添加tracker-agent，例如
 
 ```dockerfile
 # dockerfile的其他部分
 
-# 部署node-agent
-ADD swoole-enterprise-vx.y.z.tar.gz /tmp/
-RUN tar -C / -xvf /tmp/swoole-enterprise-vx.y.z.tar.gz && \
-    cd /enterprise/node-agent && \
+# 部署tracker-agent
+ADD swoole-tracker-vx.y.z.tar.gz /tmp/
+RUN tar -C / -xvf /tmp/swoole-tracker-vx.y.z.tar.gz && \
+    cd /swoole-tracker/tracker-agent && \
     ./deploy_env.sh 118.25.177.99 && \
-    rm /tmp/swoole-enterprise-vx.y.z.tar.gz
+    rm /tmp/swoole-tracker-vx.y.z.tar.gz
 
 # 添加entrypoint脚本
-RUN printf '#!/bin/sh\n/opt/swoole/script/php/swoole_php /opt/swoole/node-agent/src/node.php &\nphp-fpm $@' > /opt/swoole/entrypoint.sh && \
+RUN printf '#!/bin/sh\n/opt/swoole/script/php/swoole_php /opt/swoole/tracker-agent/src/node.php &\nphp-fpm $@' > /opt/swoole/entrypoint.sh && \
     chmod 755 /opt/swoole/entrypoint.sh
 
 # 启用entrypoint脚本（-x方便调试， 可以去掉）
@@ -57,12 +57,12 @@ ENTRYPOINT [ "sh", "-x", "/opt/swoole/entrypoint.sh" ]
 
 ### 启用扩展
 
-对于官方镜像php:fpm系列，php(-fpm)默认读取/usr/local/etc/php/conf.d下的配置文件，默认的entrypoint会将"-"开头的参数作为fpm启动参数，因此可以采用以下方式启用swoole\_plus扩展
+对于官方镜像php:fpm系列，php(-fpm)默认读取/usr/local/etc/php/conf.d下的配置文件，默认的entrypoint会将"-"开头的参数作为fpm启动参数，因此可以采用以下方式启用swoole_tracker扩展
 
 在Dockerfile添加配置文件：
 
 ```dockerfile
-RUN printf 'extension=/path/to/swoole.so\nextension=/path/to/swoole_plus7x.so\n' > /usr/local/etc/php/conf.d/swoole-plus.ini
+RUN printf 'extension=/path/to/swoole.so\nextension=/path/to/swoole_tracker7x.so\n' > /usr/local/etc/php/conf.d/swoole-tracker.ini
 ```
 
 或在docker-compose.yml添加启动参数
@@ -76,13 +76,13 @@ services:
     image: myphpfpm:1
     command:
       - "-dextension=/path/to/swoole.so"
-      - "-dextension=/path/to/swoole_plus7x.so"
+      - "-dextension=/path/to/swoole_tracker7x.so"
 ```
 
 或在docker run命令中添加启动参数
 
 ```dockerfile
-docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextension=/path/to/swoole_plus7x.so``
+docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextension=/path/to/swoole_tracker7x.so``
 ```
 
 ### 配置docker安全选项
@@ -91,9 +91,9 @@ docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextensi
 
 >[success] 参考[https://docs.docker.com/engine/security/seccomp/](https://docs.docker.com/engine/security/seccomp/)
 
-对于权限配置，可以添加SYS\_PTRACE cap，或者使用提升权限模式（不推荐）
+对于权限配置，可以添加SYS_PTRACE cap，或者使用提升权限模式（不推荐）
 
-对于seccomp，可以修改seccomp配置，或关闭seccomp配置（不推荐，这将导致docker内程序可以执行create\_module，kexec\_load等危险系统调用）
+对于seccomp，可以修改seccomp配置，或关闭seccomp配置（不推荐，这将导致docker内程序可以执行create_module，kexec_load等危险系统调用）
 
 ### 修改seccomp配置
 
@@ -165,30 +165,30 @@ services:
 
 与修改配置类似，但不需要创建json，将 `seccomp=/path/to/that/modified/profile.json` 换成`seccomp=unconfined`即可
 
-## 单独的NodeAgent容器（高级用法）
+## 单独的TrackerAgent容器（高级用法）
 
 此处提供一种单独运行的方法，仅供参考：
 
 ```bash
-# 在host安装nodeagent（或者手动安装/opt/swoole的文件）
-cd /some/place/dashbard/node-agent
-./deploy_env.sh a.b.c.d.
+# 在host安装trackeragent（或者手动安装/opt/swoole的文件）
+cd /some/place/swoole-tracker/tracker-agent
+./deploy_env.sh a.b.c.d
 # 开启NodeAgent容器
 docker run \
- --name nodeagent \
+ --name trackeragent \
  -d --cap-add SYS_PTRACE \
  --security-opt seccomp=unconfined \
  --entrypoint /opt/swoole/script/php/swoole_php \
  -v /tmp:/tmp:rw \
  -v /opt/swoole:/opt/swoole:rw \
  alpine:edge \
- /opt/swoole/node-agent/src/node.php
+ /opt/swoole/tracker-agent/src/node.php
 # 开启cgi容器
 docker run \
  --name cgi1 \
  -d \
- --pid="container:nodeagent" \
- --net="container:nodeagent" \
+ --pid="container:trackeragent" \
+ --net="container:trackeragent" \
  -v /tmp:/tmp:rw \
  -v /opt/swoole:/opt/swoole:rw \
  -v php:7.3-fpm
