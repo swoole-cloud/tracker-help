@@ -102,7 +102,7 @@ systemctl restart node-agent
 ## 9. 进程列表无信息
 
 1. 查看客户端node-agent进程是否存在
-2. 查看客户端本地是否有pid文件，路径： `/tmp/swoole-apm/states/` 下的cli和fpm文件夹中
+2. 查看客户端本地是否有pid文件，路径：`/var/run/swoole_tracker/`下的cli和fpm文件夹中
 3. pid文件对应的进程是否正常
 
 ## 10. 加载扩展后报错`undefined symbol: php_pdo_get_exception`
