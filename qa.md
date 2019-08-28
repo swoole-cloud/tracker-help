@@ -97,7 +97,7 @@ systemctl restart tracker-agent
 ## 8. 机器信息无上报信息
 
 1. 检查网络是否通畅
-2. 查看客户端日志 `/opt/swoole/logs/NodeAgent-sysinfoerr.log` 是否存在，存在查看内容，是否有上报失败字样
+2. 查看客户端日志 `/opt/swoole/logs/TrackerAgent-sysinfoerr.log` 是否存在，存在查看内容，是否有上报失败字样
 3. 服务端地址是否正确
 
 ## 9. 进程列表无信息
