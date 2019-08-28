@@ -43,12 +43,12 @@ apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 # 部署tracker-agent
 ADD swoole-tracker-vx.y.z.tar.gz /tmp/
 RUN tar -C / -xvf /tmp/swoole-tracker-vx.y.z.tar.gz && \
-    cd /swoole-tracker/tracker-agent && \
+    cd /swoole-tracker/node-agent && \
     ./deploy_env.sh 118.25.177.99 && \
     rm /tmp/swoole-tracker-vx.y.z.tar.gz
 
 # 添加entrypoint脚本
-RUN printf '#!/bin/sh\n/opt/swoole/script/php/swoole_php /opt/swoole/tracker-agent/src/node.php &\nphp-fpm $@' > /opt/swoole/entrypoint.sh && \
+RUN printf '#!/bin/sh\n/opt/swoole/script/php/swoole_php /opt/swoole/node-agent/src/node.php &\nphp-fpm $@' > /opt/swoole/entrypoint.sh && \
     chmod 755 /opt/swoole/entrypoint.sh
 
 # 启用entrypoint脚本（-x方便调试， 可以去掉）
@@ -165,30 +165,30 @@ services:
 
 与修改配置类似，但不需要创建json，将 `seccomp=/path/to/that/modified/profile.json` 换成`seccomp=unconfined`即可
 
-## 单独的TrackerAgent容器（高级用法）
+## 单独的NodeAgent容器（高级用法）
 
 此处提供一种单独运行的方法，仅供参考：
 
 ```bash
-# 在host安装trackeragent（或者手动安装/opt/swoole的文件）
-cd /some/place/swoole-tracker/tracker-agent
+# 在host安装NodeAgent（或者手动安装/opt/swoole的文件）
+cd /some/place/swoole-tracker/node-agent
 ./deploy_env.sh a.b.c.d
 # 开启NodeAgent容器
 docker run \
- --name trackeragent \
+ --name nodeagent \
  -d --cap-add SYS_PTRACE \
  --security-opt seccomp=unconfined \
  --entrypoint /opt/swoole/script/php/swoole_php \
  -v /tmp:/tmp:rw \
  -v /opt/swoole:/opt/swoole:rw \
  alpine:edge \
- /opt/swoole/tracker-agent/src/node.php
+ /opt/swoole/node-agent/src/node.php
 # 开启cgi容器
 docker run \
  --name cgi1 \
  -d \
- --pid="container:trackeragent" \
- --net="container:trackeragent" \
+ --pid="container:nodeagent" \
+ --net="container:nodeagent" \
  -v /tmp:/tmp:rw \
  -v /opt/swoole:/opt/swoole:rw \
  -v php:7.3-fpm

@@ -50,29 +50,29 @@ apm.sampling_rate=100
 * 检查客户端服务名和服务端创建是否一致
 * 同问题2
 
-## 4. 管理TrackerAgent守护进程
+## 4. 管理NodeAgent守护进程
 
-目前TrackerAgent采用系统的守护进程管理，如果要管理TrackerAgent的状态：
+目前NodeAgent采用系统的守护进程管理，如果要管理NodeAgent的状态：
 
 * 对于采用openrc和类似sysvinit的系统（如Debian 7 "Wheezy", Ubuntu 14.04 "Trusty"（默认不安装systemd）, CentOS(RHEL) 6, Fedora 14, Gentoo（可选）, Archlinux（可选）, Alpine Linux）使用命令
 
 ```bash
-/etc/init.d/tracker-agent start
-/etc/init.d/tracker-agent stop
-/etc/init.d/tracker-agent restart
+/etc/init.d/node-agent start
+/etc/init.d/node-agent stop
+/etc/init.d/node-agent restart
 ```
 
-来启动/停止/重启TrackerAgent（非root用户需要sudo）
+来启动/停止/重启NodeAgent（非root用户需要sudo）
 
 * 对于采用systemd的系统（Debian 8 "Jessie"及以后, Ubuntu 15.04 "Vivid"及以后, CentOS(RHEL) 7及以后, Fedora 15及以后, Gentoo（可选）, Archlinux（可选））使用命令
 
 ```bash
-systemctl start tracker-agent
-systemctl stop tracker-agent
-systemctl restart tracker-agent
+systemctl start node-agent
+systemctl stop node-agent
+systemctl restart node-agent
 ```
 
-来启动/停止/重启TrackerAgent（非root用户需要sudo）
+来启动/停止/重启NodeAgent（非root用户需要sudo）
 
 ## 5. 客户端报错： `Warning:Invalid callback \Sdk\Core::getModuleId,class '\Sdk\Core' not found`
 
@@ -96,7 +96,7 @@ systemctl restart tracker-agent
 ## 8. 机器信息无上报信息
 
 1. 检查网络是否通畅
-2. 查看客户端日志 `/opt/swoole/logs/TrackerAgent-sysinfoerr.log` 是否存在，存在查看内容，是否有上报失败字样
+2. 查看客户端日志 `/opt/swoole/logs/NodeAgent-sysinfoerr.log` 是否存在，存在查看内容，是否有上报失败字样
 3. 服务端地址是否正确
 
 ## 9. 进程列表无信息

@@ -10,12 +10,12 @@
 
 >[danger] 如果不需要[机器信息](../../sysinfo.md)上报的话，可以修改为`false`
 
-文件路径`/opt/swoole/node-agent/src/TrackerAgent/Config.php`
+文件路径`/opt/swoole/node-agent/src/NodeAgent/Config.php`
 
 ```php
 <?php
 
-namespace TrackerAgent;
+namespace NodeAgent;
 
 class Config
 {
