@@ -10,19 +10,19 @@
 
 >[danger] 如果不需要[机器信息](../../sysinfo.md)上报的话，可以修改为`false`
 
-文件路径`/opt/swoole/node-agent/src/NodeAgent/Config.php`
+文件路径`/opt/swoole/node-agent/src/TrackerAgent/Config.php`
 
 ```php
 <?php
 
-namespace NodeAgent;
+namespace TrackerAgent;
 
 class Config
 {
    // 日志目录
-   const NA_SWOOLE_LOGS_DIR = '/opt/swoole/logs';
+   const TA_SWOOLE_LOGS_DIR = '/opt/swoole/logs';
 
    // 是否打开机器信息上报
-   const NA_SYSINFO_REPORT = true;
+   const TA_SYSINFO_REPORT = true;
 }
 ```
