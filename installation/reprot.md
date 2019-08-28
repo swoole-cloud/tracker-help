@@ -32,8 +32,14 @@
 >[info] 例如：您想监控服务名为`user_service`的cli常驻进程应用，您的应用类型选择Service，服务名填`user_service`.
 
 ### Service上报指南
+#### 自动创建
 
-需要在适当位置用下面的方法手动添加埋点代码：
+系统支持自动创建服务名，自动上报，无需修改任何代码，格式为：
+Swoole的HttpServer：`ip:prot`
+其他的Server：`ip(hostname):prot`
+
+#### 手动埋点
+如果需要自定义服务名称的话，需要在适当位置用下面的方法手动添加埋点代码：
 
 ```php
 /**
