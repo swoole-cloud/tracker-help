@@ -2,25 +2,24 @@
 
 [TOC]
 
-一切问题先检查客户端、`swoole_plus`扩展、服务端版本是否一致，是否为最新发布版本
+一切问题先检查客户端、`swoole_tracker`扩展、服务端版本是否一致，是否为最新发布版本
 
->[success] swoole_plus扩展的发布版本可能会出现比客户端、服务端高，这个不影响。
+>[success] swoole_tracker扩展的发布版本可能会出现比客户端、服务端高，这个不影响。
 
 * 查看客户端版本 `ps -ef | grep node`
 
 ![](images/screenshot_1565061680091.png)
 
-* 查看 `swoole_plus` 扩展版本
+* 查看 `swoole_tracker` 扩展版本
 
 ```ini
 # php.ini不要忘了添加
-extension=swoole_plus.so
+extension=swoole_tracker.so
 apm.enable=1
 apm.sampling_rate=100
 ```
 
->[info] cli模式 php --ri swoole_plus
-
+>[info] cli模式 php --ri swoole_tracker
 ![](images/screenshot_1565061764588.png)
 
 >[success] fpm模式 phpinfo()
@@ -35,14 +34,14 @@ apm.sampling_rate=100
 
 * 查看项目是否正确，自动创建的应用会放到默认项目中
 * 检查该应用是否存在合并应用或应用黑名单中
-* 检查客户端`swoole_plus` 配置是否正确，参考安装说明->客户端
+* 检查客户端`swoole_tracker` 配置是否正确，参考安装说明->客户端
 * 检查客户端是否给该服务端上报
 
 ## 2. 应用监控/应用追踪无信息
 
 * 检查对应后台IP是否正确，防火墙、端口是否开放
 * 检查客户端进程是否存在
-* 检查客户端`swoole_plus`配置是否正确，参考安装说明->客户端
+* 检查客户端`swoole_tracker`配置是否正确，参考安装说明->客户端
 * 存在脏数据缓存，等待5-10分钟（之前逻辑为客户端上报的时候会创建文件缓存，每五分钟删除一次，重新安装服务端后客户端文件缓存未删除，出现脏数据缓存，导致短时间内无法上报，现已将缓存写入内存中，重装服务端后重启服务端fpm和重启swoole-admin服务就能正常接收数据，无需等待）
 
 ## 3. Service应用无应用监控、追踪信息
@@ -52,29 +51,29 @@ apm.sampling_rate=100
 * 检查客户端服务名和服务端创建是否一致
 * 同问题2
 
-## 4. 管理NodeAgent守护进程
+## 4. 管理TrackerAgent守护进程
 
-目前NodeAgent采用系统的守护进程管理，如果要管理NodeAgent的状态：
+目前TrackerAgent采用系统的守护进程管理，如果要管理TrackerAgent的状态：
 
 * 对于采用openrc和类似sysvinit的系统（如Debian 7 "Wheezy", Ubuntu 14.04 "Trusty"（默认不安装systemd）, CentOS(RHEL) 6, Fedora 14, Gentoo（可选）, Archlinux（可选）, Alpine Linux）使用命令
 
 ```bash
-/etc/init.d/node-agent start
-/etc/init.d/node-agent stop
-/etc/init.d/node-agent restart
+/etc/init.d/tracker-agent start
+/etc/init.d/tracker-agent stop
+/etc/init.d/tracker-agent restart
 ```
 
-来启动/停止/重启NodeAgent（非root用户需要sudo）
+来启动/停止/重启TrackerAgent（非root用户需要sudo）
 
 * 对于采用systemd的系统（Debian 8 "Jessie"及以后, Ubuntu 15.04 "Vivid"及以后, CentOS(RHEL) 7及以后, Fedora 15及以后, Gentoo（可选）, Archlinux（可选））使用命令
 
 ```bash
-systemctl start node-agent
-systemctl stop node-agent
-systemctl restart node-agent
+systemctl start tracker-agent
+systemctl stop tracker-agent
+systemctl restart tracker-agent
 ```
 
-来启动/停止/重启NodeAgent（非root用户需要sudo）
+来启动/停止/重启TrackerAgent（非root用户需要sudo）
 
 ## 5. 客户端报错： `Warning:Invalid callback \Sdk\Core::getModuleId,class '\Sdk\Core' not found`
 
