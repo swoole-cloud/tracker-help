@@ -20,9 +20,9 @@ namespace NodeAgent;
 class Config
 {
    // 日志目录
-   const TA_SWOOLE_LOGS_DIR = '/opt/swoole/logs';
+   const NA_SWOOLE_LOGS_DIR = '/opt/swoole/logs';
 
    // 是否打开机器信息上报
-   const TA_SYSINFO_REPORT = true;
+   const NA_SYSINFO_REPORT = true;
 }
 ```
