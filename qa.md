@@ -74,7 +74,7 @@ systemctl restart node-agent
 
 来启动/停止/重启NodeAgent（非root用户需要sudo）
 
-## 5. 客户端报错： `Warning: require(): open\_basedir restriction in effect.`
+## 5. 客户端报错： `Warning: require(): open_basedir restriction in effect.`
 
 解决方法：检查客户端防跨目录设置 `open_basedir` 。
 
