@@ -5,7 +5,7 @@
 * config_ip.conf 配置服务端IP
 * config_port.conf 配置服务端端口
 
->[danger] 如果遇到应用监控/应用追踪无数据信息，可先检查以上两个配置文件是否正确
+>[danger] 如果遇到应用监控/应用追踪无信息，可先检查以上两个配置文件是否正确
 
 * config_white_list.conf 配置白名单
 * config_common.conf 配置服务端客户端通讯方式和阻塞检测耗时
