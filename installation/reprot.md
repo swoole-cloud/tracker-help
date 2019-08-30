@@ -34,7 +34,7 @@
 ### Service上报指南
 #### 自动创建
 
-系统支持自动创建服务名，自动上报，无需修改任何代码，格式为：
+系统支持自动生成应用名称并创建应用，无需修改任何代码，生成的应用名称格式为：
 Swoole的HttpServer：`ip:prot`
 其他的Server：`ip(hostname):prot`
 
