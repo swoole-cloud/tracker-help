@@ -76,7 +76,7 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp);
  * @param $errno 201
  * @return void
  */
-\SwooleTracker\Stats:afterExecRpc($tick, $ret, $errno);
+\SwooleTracker\Stats::afterExecRpc($tick, $ret, $errno);
 ```
 
 ### 实例说明
