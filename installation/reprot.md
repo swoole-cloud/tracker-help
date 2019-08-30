@@ -49,7 +49,7 @@ Swoole的HttpServer：`ip:prot`
  * @param  $serverIp eg. '192.1.1.1'
  * @return StatsCenter_Tick object
  */
-$tick = \StatsCenter::beforeReqRpc($func, $serviceName, $serverIp);
+$tick = \SwooleTracker\Stats::beforeReqRpc($func, $serviceName, $serverIp);
   
 /*
  * 请求服务后执行
@@ -58,7 +58,7 @@ $tick = \StatsCenter::beforeReqRpc($func, $serviceName, $serverIp);
  * @param $errno 201
  * @return void
  */
-\StatsCenter::afterReqRpc($tick, $ret, $errno);
+\SwooleTracker\Stats::afterReqRpc($tick, $ret, $errno);
 
  /**
  * 被调用开始前执行
@@ -67,7 +67,7 @@ $tick = \StatsCenter::beforeReqRpc($func, $serviceName, $serverIp);
  * @param  $serverIp eg. '192.1.1.1'
  * @return StatsCenter_Tick object
  */
-$tick = \StatsCenter::beforeExecRpc($func, $serviceName, $serverIp);
+$tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp);
 
 /*
  * 被调用结束后执行
@@ -76,7 +76,7 @@ $tick = \StatsCenter::beforeExecRpc($func, $serviceName, $serverIp);
  * @param $errno 201
  * @return void
  */
- \StatsCenter::afterExecRpc($tick, $ret, $errno);
+\SwooleTracker\Stats:afterExecRpc($tick, $ret, $errno);
 ```
 
 ### 实例说明
@@ -97,7 +97,7 @@ $tick = \StatsCenter::beforeExecRpc($func, $serviceName, $serverIp);
  * @param string $spanId
  * @return StatsCenter_Tick object
  */
-$tick = \StatsCenter::beforeExecRpc($func, $serviceName, $serverIp, $traceId, $spanId);
+$tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp, $traceId, $spanId);
 
 /**
  * 被调用结束后执行
@@ -106,5 +106,5 @@ $tick = \StatsCenter::beforeExecRpc($func, $serviceName, $serverIp, $traceId, $s
  * @param $errno 201
  * @return void
  */
- \StatsCenter::afterExecRpc($tick, $ret, $errno);
+\SwooleTracker\Stats::afterExecRpc($tick, $ret, $errno);
 ```
