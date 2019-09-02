@@ -35,7 +35,7 @@ apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 
 ### 修改Dockerfile以部署node-agent
 
-在Dockerfile中执行deploy_env.sh 来部署tracker-agent，然后在entrypoint中添加node-agent，例如
+在Dockerfile中执行deploy_env.sh来部署node-agent，然后在entrypoint中添加node-agent，例如
 
 ```dockerfile
 # dockerfile的其他部分
