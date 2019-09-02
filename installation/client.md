@@ -31,16 +31,16 @@ apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 
 >[danger] 请注意修改相关路径为你自己的路径！！！
 
-在docker环境部署需要修改Dockerfile或者docker-compose.yml或者在`docekr run`命令中添加参数，以下以采用官方docker-compose v3.7配置文件格式，php:fpm-7.x(-alpine)镜像为例，描述如何在docker部署
+在docker环境部署需要修改Dockerfile或者docker-compose.yml或者在`docker run`命令中添加参数，以下以采用官方docker-compose v3.7配置文件格式，php:fpm-7.x(-alpine)镜像为例，描述如何在docker部署
 
-### 修改Dockerfile以部署tracker-agent
+### 修改Dockerfile以部署node-agent
 
-在Dockerfile中执行deploy_env.sh 来部署tracker-agent，然后在entrypoint中添加tracker-agent，例如
+在Dockerfile中执行deploy_env.sh 来部署tracker-agent，然后在entrypoint中添加node-agent，例如
 
 ```dockerfile
 # dockerfile的其他部分
 
-# 部署tracker-agent
+# 部署node-agent
 ADD swoole-tracker-vx.y.z.tar.gz /tmp/
 RUN tar -C / -xvf /tmp/swoole-tracker-vx.y.z.tar.gz && \
     cd /swoole-tracker/node-agent && \
