@@ -166,7 +166,7 @@ startBlockCheck();
 endBlockCheck();
 ```
 
-默认检测阻塞10ms的数据，大于这个值的系统调用就认为是阻塞的，如果要修改请编辑文件 `/opt/swoole/public/sdk/config_common.conf`
+默认检测阻塞10ms的数据，大于这个值的系统调用就认为是阻塞的，如果要修改请编辑文件 `/opt/swoole/config/config_common.conf`
 
 ```json
 {"protocol":"TCP","block_time_out":"10"}
