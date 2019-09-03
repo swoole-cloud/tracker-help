@@ -40,7 +40,7 @@ dnf install docker-ce
 
 然后再解压压缩包，执行`./build.sh ./run.sh`
 
->[danger] 重装后需要重启客户端的`node-agent`进程、`fpm`进程以及`Service`进程；删除`/tmp/swoole`下所有文件
+>[danger] 重装后需要重启客户端的`node-agent`进程、`fpm`进程以及`Service`进程；
 
 ## 细节
 
