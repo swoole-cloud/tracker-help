@@ -27,9 +27,11 @@
 
 ### 自动创建应用
 
-系统支持自动生成应用名称并创建应用，无需修改任何代码，生成的应用名称格式为：
-Swoole的HttpServer：`ip:prot`
-其他的Server：`ip(hostname):prot`
+系统支持自动生成应用名称并创建应用，无需修改任何代码。
+
+如果使用 `Swoole` 的 `HttpServer` 那么生成的应用名称为`ip:port`
+
+如果使用 `Swoole` 其他的 `Server` 那么生成的应用名称为`ip(hostname):port`
 
 ### 手动创建应用
 
@@ -38,6 +40,7 @@ Swoole的HttpServer：`ip:prot`
 >[info] 例如：您想监控服务名为`user_service`的cli常驻进程应用，您的应用类型选择Service，服务名填`user_service`.
 
 ### Service上报指南
+
 #### 自动上报
 
 系统支持自动生成应用名称并创建应用，无需修改任何代码
