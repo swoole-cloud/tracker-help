@@ -27,6 +27,10 @@ apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 
 在命令行中执行 `./deploy_env.sh 127.0.0.1`。(`127.0.0.1`为admin后台的机器ip)
 
+### 4. 重启服务
+
+**重启swoole server或者php-fpm服务，然后稍等片刻，等待服务端接收客户端发送的数据。**
+
 ## 在Docker部署
 
 >[danger] 请注意修改相关路径为你自己的路径！！！以下的swoole.so只是演示说明可安装其他扩展，swoole_tracker不依赖swoole扩展
