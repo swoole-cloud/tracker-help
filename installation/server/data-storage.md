@@ -14,4 +14,3 @@
 ### 密码
 安装完成后默认无密码
 ### 修改用户名及密码
-编辑`/etc/clickhouse-server/users.xml`文件，
