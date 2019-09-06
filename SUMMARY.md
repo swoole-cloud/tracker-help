@@ -1,5 +1,6 @@
 * [安装说明](installation.md)
     * [服务端](installation/server.md)
+        * [数据存储](installation/server/data-storage.md)
     * [客户端](installation/client.md)
         * [系统配置](installation/client/agent-config.md)
         * [自定义配置](installation/client/user-config.md)
