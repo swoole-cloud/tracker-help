@@ -8,9 +8,9 @@
 
 具体安装步骤，可参照`clickhouse`官方文档：[部署运行](https://clickhouse.yandex/docs/zh/getting_started/)
 
-## 自定义配置
+## 配置信息
 ### 用户名
 安装时会要求配置用户名，默认的用户名为`default`
 ### 密码
 安装完成后默认无密码
-### 修改用户名及密码
+
