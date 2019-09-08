@@ -19,6 +19,5 @@
 * [用户管理](user.md)
     * [第三方登录](user/oauth-login.md)
 * [更换数据库](change-db.md)
-* [配置管理(上报规则管理)](configuration.md)
 * [对外开放API](api.md)
 * [联系我们](contact-us.md)
