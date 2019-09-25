@@ -48,7 +48,7 @@ apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 ADD swoole-tracker-vx.y.z.tar.gz /tmp/
 RUN tar -C / -xvf /tmp/swoole-tracker-vx.y.z.tar.gz && \
     cd /swoole-tracker/node-agent && \
-    ./deploy_env.sh 118.25.177.99 && \
+    ./deploy_env.sh 服务端IP && \
     rm /tmp/swoole-tracker-vx.y.z.tar.gz
 
 # 添加entrypoint脚本
