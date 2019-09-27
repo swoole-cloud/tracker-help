@@ -1,5 +1,3 @@
-# 系统配置
-
 存放一些客户端的配置文件，路径`/opt/swoole/config`，请勿删除相关文件
 
 * config_ip.conf 配置服务端IP

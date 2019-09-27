@@ -1,5 +1,3 @@
-# 安装说明
-
 Swoole Tracker的安装说明
 
 * [服务端](installation/server.md)

@@ -1,11 +1,8 @@
-# 更换数据库
-![image.png](images/watermark,type_d3F5LW1pY3JvaGVp,size_14,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10-20190806135622071.png)
-
-### 此处显示当前服务开启状态
+## 此处显示当前服务开启状态
 
 ![image.png](images/watermark,type_d3F5LW1pY3JvaGVp,size_14,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10-20190806135622593.png)
 
-### 如需更换到自己的数据库请按如下操作
+## 如需更换到自己的数据库请按如下操作
 
 - 将自己数据库配置填写进红框1
 - 选择红框2并点击提交，将会检测数据库是否可以连接，如果可以则会关闭服务
