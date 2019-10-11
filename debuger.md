@@ -3,7 +3,7 @@
 ## 进程列表
 
 统计客户端机器`fpm`和`cli`进程内存占用和CPU占用，操作开启关闭远程调试，可批量开启全部
-![](images/screenshot_1570756083496.png)
+![](images/screenshot_1570757670492.png)
 
 ## 远程调试
 
