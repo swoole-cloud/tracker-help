@@ -2,11 +2,11 @@
 
 ## 直接部署
 
-### 1. 安装对应的`swoole_trakcer`扩展
+### 1. 安装对应的`swoole_tracker`扩展
 
 在 `php.ini` 中加入以下配置
 ```ini
-extension=swoole_trakcer.so 
+extension=swoole_tracker.so 
 apm.enable=1           #打开总开关
 apm.sampling_rate=100  #采样率 100%
 
