@@ -49,7 +49,7 @@
 ```php
 /**
  * 请求服务前执行
- * @param  $func eg.  App\Login\Weibo::login'
+ * @param  $func eg.  'App\Login\Weibo::login'
  * @param  $serviceName 必须和创建应用时候服务名一致 eg. 'user'
  * @param  $serverIp eg. '192.1.1.1'
  * @return StatsCenter_Tick object
@@ -67,7 +67,7 @@ $tick = \SwooleTracker\Stats::beforeReqRpc($func, $serviceName, $serverIp);
 
  /**
  * 被调用开始前执行
- * @param  $func eg.  App\Login\Weibo::login'
+ * @param  $func eg.  'App\Login\Weibo::login'
  * @param  $serviceName 必须和创建应用时候服务名一致 eg. 'user'
  * @param  $serverIp eg. '192.1.1.1'
  * @return StatsCenter_Tick object
@@ -95,7 +95,7 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp);
 ```php
 /**
  * 被调用开始前执行
- * @param  $func eg.  App\Login\Weibo::login'
+ * @param  $func eg.  'App\Login\Weibo::login'
  * @param  $serviceName 必须和创建应用时候服务名一致 eg. 'user'
  * @param  $serverIp eg. '192.1.1.1'
  * @param string $traceId
