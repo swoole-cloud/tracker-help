@@ -28,7 +28,7 @@ apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 
 ### 4. 重启服务
 
-**重启swoole server或者php-fpm服务，然后稍等片刻，等待服务端接收客户端发送的数据。**
+重启swoole server或者php-fpm服务，发生请求后稍等片刻，等待服务端接收客户端发送的数据。
 
 ## 在Docker部署
 
