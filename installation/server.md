@@ -1,11 +1,44 @@
 [TOC]
 ## 依赖
+### 安装docker和docker-compose
+系统依赖docker和docker-compose.
 
-系统依赖 `docker` 
+如果不了解如何部署docker，使用以下命令来进行安装（需要root权限）
 
 ```bash
-curl -sL https://get.docker.com | sh
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
 ```
+
+优先使用你的发行版提供的docker-compose进行安装
+例如
+```bash
+dnf install docker-compose # fedora
+yum install docker-compose # CentOS 7/ RHEL7
+apt-get install docker-compose # debian及其变种如Ubuntu
+apk add docker-compose # alpine
+pacman -S docker-compose # arch
+```
+如果你的发行版没有提供docker-compose（例如CentOS 6），
+docker-compose二进制可以从https://github.com/docker/compose/releases下载
+> 注意：docker-compose可能依赖python3
+### 启用docker daemon
+对于使用systemd的发行版（fedora，CentOS/RHEL7，debian及其变种，arch）：
+```bash
+systemctl start docker # 开启dockerd
+systemctl enable docker # 启用dockerd的开机启动
+```
+> 注意：有的发行版的docker daemon的systemd单元名称不是docker，需要自行决定start和enable的名称
+对于使用openrc的发行版（alpine，gentoo）
+```bash
+rc-service docker start # 开启dockerd
+rc-update add docker # 启用dockerd的开机启动
+```
+对于其他sysvinit-like的启动系统
+```bash
+/etc/init.d/docker start
+```
+参考你的发行版提供的启动管理器机制来启用开机自启
 
 ## 安装
 
