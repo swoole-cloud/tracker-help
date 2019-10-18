@@ -37,7 +37,7 @@ rc-update add docker # 启用dockerd的开机启动
 ```
 对于其他sysvinit-like的启动系统
 ```bash
-/etc/init.d/docker start
+/etc/init.d/docker start # 开启dockerd
 ```
 参考你的发行版提供的启动管理器机制来启用开机自启
 ### CentOS 8
