@@ -39,7 +39,7 @@ rc-update add docker # 启用dockerd的开机启动
 ```bash
 /etc/init.d/docker start # 开启dockerd
 ```
-参考你的发行版提供的启动管理器机制来启用开机自启
+然后参考你的发行版提供的启动管理器机制来启用开机自启
 ### CentOS 8
 centos8的官方仓库提供的是podman作为docker的替代，不完全兼容docker和docker-compose，可能存在问题，考虑使用一般的docker来进行安装:
 ```bash
