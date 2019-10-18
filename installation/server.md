@@ -29,6 +29,7 @@ systemctl start docker # 开启dockerd
 systemctl enable docker # 启用dockerd的开机启动
 ```
 > 注意：有的发行版的docker daemon的systemd单元名称不是docker，需要自行决定start和enable的名称
+
 对于使用openrc的发行版（alpine，gentoo）
 ```bash
 rc-service docker start # 开启dockerd
