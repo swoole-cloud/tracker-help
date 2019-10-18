@@ -1,24 +1,10 @@
 [TOC]
 ## 依赖
 
-系统依赖 `docker` ，启用docker-ce源后，使用如下命令安装
-
-* dpkg系Debian/Ubuntu
+系统依赖 `docker` 
 
 ```bash
-apt-get install docker-ce
-```
-
-* rpm系CentOS/RHEL/Fedora
-
-```bash
-yum install docker-ce
-```
-
-* rpm系，Fedora/CentOS8+/RHEL8+
-
-```
-dnf install docker-ce
+curl -sL https://get.docker.com | sh
 ```
 
 ## 安装
