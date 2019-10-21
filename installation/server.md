@@ -20,7 +20,7 @@ apk add docker-compose # alpine
 pacman -S docker-compose # arch
 ```
 如果你的发行版没有提供docker-compose（例如CentOS 6），
-docker-compose二进制可以从https://github.com/docker/compose/releases下载
+docker-compose二进制可以从[https://github.com/docker/compose/releases](https://github.com/docker/compose/releases)下载
 >[danger] 注意：docker-compose可能依赖python3
 ### 启用docker daemon
 对于使用systemd的发行版（fedora，CentOS/RHEL7，debian及其变种，arch）：
