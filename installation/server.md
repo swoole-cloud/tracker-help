@@ -21,14 +21,14 @@ pacman -S docker-compose # arch
 ```
 如果你的发行版没有提供docker-compose（例如CentOS 6），
 docker-compose二进制可以从https://github.com/docker/compose/releases下载
-> 注意：docker-compose可能依赖python3
+>[danger] 注意：docker-compose可能依赖python3
 ### 启用docker daemon
 对于使用systemd的发行版（fedora，CentOS/RHEL7，debian及其变种，arch）：
 ```bash
 systemctl start docker # 开启dockerd
 systemctl enable docker # 启用dockerd的开机启动
 ```
-> 注意：有的发行版的docker daemon的systemd单元名称不是docker，需要自行决定start和enable的名称
+>[danger]  注意：有的发行版的docker daemon的systemd单元名称不是docker，需要自行决定start和enable的名称
 
 对于使用openrc的发行版（alpine，gentoo）
 ```bash
