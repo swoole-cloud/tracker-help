@@ -51,11 +51,11 @@ dnf install docker-ce
 
 1. 进入 `swoole-admin-docker`目录
 2. 执行 `./build.sh`
-3. 执行 `./run.sh`（服务端默认端口是9666，如要修改请执行 `SWOOLE_ADMIN_NGINX_PORT=端口号 ./run.sh` ）
+3. 执行 `./run.sh`
 
 ## 访问Admin后台
 
-运行`./run.sh`后 直接访问当前机器的`ip:9666`(或自定义的端口)即可，默认用户名是`admin`密码为`admin`
+运行`./run.sh`后 直接访问当前机器的`ip:9666`即可，默认用户名是`admin`密码为`admin`
 
 >[danger] 安装完成后首次访问如果报错`500`，请将`data`目录删掉，执行`./kill.sh ./rm.sh`后，重新执行安装步骤。
 
