@@ -146,7 +146,7 @@ endMemleakCheck();
 ![](images/1558499079749-a015e40a-ffe7-42a2-b248-4ec87e63e04a-20190806121827839.png)
 
 >[info] 反应堆解释：
-> 如果使用swoole会产生较多的的epoll\_wait、epoll\_wait\_old、epoll\_pwait，等待事件发生。可选择检测时列表是否将此类信息过滤不进行展示。
+> 如果使用swoole会产生较多的的epoll_wait、epoll_wait_old、epoll_pwait，等待事件发生。可选择检测时列表是否将此类信息过滤不进行展示。
 
 * 在代码开头添加
 
@@ -166,7 +166,7 @@ endBlockCheck();
 {"protocol":"TCP","block_time_out":"10"}
 ```
 
-修改 `block_time_out` 的值
+修改 `block_time_out` 的值，修改后需要重启NodeAgent
 
 ### 查看调用栈
 

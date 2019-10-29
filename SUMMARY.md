@@ -10,6 +10,7 @@
 * [首页](application-list.md)
 * [调用统计](application-monitoring.md)
 * [链路追踪](application-tracking.md)
+* [调试器适用场景](debug-explain.md)
 * [调试器](debuger.md)
 * [机器信息](sysinfo.md)
 * [报警管理](alert.md)
