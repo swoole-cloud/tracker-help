@@ -6,6 +6,25 @@
     "pluginsConfig": {
         "highlight": {
             "defaultLanguage": "markup"
+        },
+        "theme-default": {
+            "show_nav": true,
+            "logo": {
+                "image": "https://img.kancloud.cn/4e/45/4e45172f86ac746e40eb69c2827ae271_157x77.png",
+                "url": "https://www.swoole-cloud.com/"
+            },
+            "navs": [
+                {
+                    "title": "官网",
+                    "url": "https://www.swoole-cloud.com/",
+                    "target": true
+                },
+                {
+                    "title": "基础手册",
+                    "url": "https://www.kancloud.cn/swoole-inc/ee-base-wiki/content",
+                    "target": true
+                }
+            ]
         }
     }
 }
