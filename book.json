@@ -15,11 +15,6 @@
             },
             "navs": [
                 {
-                    "title": "官网",
-                    "url": "https://www.swoole-cloud.com/",
-                    "target": true
-                },
-                {
                     "title": "基础手册",
                     "url": "https://www.kancloud.cn/swoole-inc/ee-base-wiki/content",
                     "target": true
