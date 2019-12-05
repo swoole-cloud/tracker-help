@@ -199,4 +199,4 @@ docker run \
 ```
 ## 管理客户端进程
 
-查看 [常见问题](qa.md) 中的「管理NodeAgent守护进程」
+查看 [常见问题](/qa.md) 中的「管理NodeAgent守护进程」
