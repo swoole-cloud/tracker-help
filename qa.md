@@ -4,9 +4,9 @@
 
 >[success] swoole_tracker扩展的发布版本可能会出现比客户端、服务端高，这个不影响。
 
-* 查看客户端版本 `ps -ef | grep node`
+* 查看客户端版本 `ps -ef | grep agent`
 
-![](images/screenshot_1565061680091.png)
+![](images/screenshot_1575600651609.png)
 
 * 查看 `swoole_tracker` 扩展版本
 
