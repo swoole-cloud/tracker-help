@@ -176,7 +176,8 @@ services:
 ```bash
 # 在host安装NodeAgent（或者手动安装/opt/swoole的文件）
 cd /some/place/swoole-tracker/node-agent
-./deploy_env.sh a.b.c.d
+./deploy_env.sh 服务端IP
+
 # 开启NodeAgent容器
 docker run \
  --name nodeagent \
