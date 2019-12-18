@@ -74,44 +74,35 @@ systemctl restart node-agent
 
 来启动/停止/重启NodeAgent（非root用户需要sudo）
 
-## 5. 客户端报错： `Warning: require(): open_basedir restriction in effect.`
-
-解决方法：检查客户端防跨目录设置 `open_basedir` 。
-
->[warning] 如果使用的是 `lnmp` 一键安装包，并且版本大于 `1.4` 可以直接使用 `lnmp` 安装包 `tools/` 目录下的 `./remove_open_basedir_restriction.sh` 进行移除，其他版本[查看lnmp官方文档](https://lnmp.org/faq/lnmp-vhost-add-howto.html#user.ini)说明处理
-
->[danger] 如果使用的是宝塔集成环境，当你新增网站或修改网站配置时会自动开启防跨站攻击(open_basedir)，需要进行关闭
-![](images/bt-open_basedir.png)
-
-## 6. 增加调试器中的相关代码后报错： `Fatal error: Uncaught Exception: plz set apm.enable_memcheck=1 which in php.ini`
+## 5. 增加调试器中的相关代码后报错： `Fatal error: Uncaught Exception: plz set apm.enable_memcheck=1 which in php.ini`
 
 解决方法：在 `php.ini` 中添加配置： `apm.enable_memcheck=1`
 
 >[info] 从2.3.3版本以后默认关闭调试功能，需要手动进行配置。或者使用远程调试
 
-## 7. 重装服务端并清空数据库后，没有上报信息等情况
+## 6. 重装服务端并清空数据库后，没有上报信息等情况
 
 从2.3.3版本开始有部分信息缓存在php内存中，服务端重装后，数据对应不上导致部分数据获取失败，所以客户端需要重启fpm进程
 
-## 8. 机器信息无上报信息
+## 7. 机器信息无上报信息
 
 1. 检查网络是否通畅
 2. 查看客户端日志 `/opt/swoole/logs/NodeAgent-sysinfoerr.log` 是否存在，存在查看内容，是否有上报失败字样
 3. 服务端地址是否正确
 
-## 9. 进程列表无信息
+## 8. 进程列表无信息
 
 1. 查看客户端node-agent进程是否存在
 2. 查看客户端本地是否有pid文件，路径：`/var/run/swoole_tracker/`下的cli和fpm文件夹中
 3. pid文件对应的进程是否正常
 
-## 10. 加载扩展后报错`undefined symbol: php_pdo_get_exception`
+## 9. 加载扩展后报错`undefined symbol: php_pdo_get_exception`
 
 扩展需要放在pdo扩展后面加载。使用`php --ini | grep "Scan for additional .ini files in:"`查看第三方加载目录，在此目录中创建一个`swoole_tracker`的配置
 ![](images/screenshot_1566982265088.png)
 
 
-## 11. 加载扩展后报错`undefined symbol: compiler_globals in Unknown`
+## 10. 加载扩展后报错`undefined symbol: compiler_globals in Unknown`
 
 扩展支持`nts`非线程安全版本PHP，可使用命令`php -v`查看
 ![](images/screenshot_1566982251150.png)
