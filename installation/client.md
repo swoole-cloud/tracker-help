@@ -25,7 +25,7 @@ apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 
 ### 3. 运行
 
-在命令行中执行 `./deploy_env.sh 127.0.0.1`。(`127.0.0.1`为admin后台的机器ip)
+在 node-agent 的目录下的命令行中执行 `./deploy_env.sh 127.0.0.1`。(`127.0.0.1`为admin后台的机器ip)
 
 ### 4. 重启服务
 
