@@ -5,6 +5,7 @@
         * [系统配置](installation/client/agent-config.md)
         * [自定义配置](installation/client/user-config.md)
     * [上报监控数据](installation/reprot.md)
+    * [数据清理](installation/clean-log.md)
 * [名词解释](noun-interpretation.md)
 * [常见问题](qa.md)
 * [首页](application-list.md)
