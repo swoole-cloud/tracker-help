@@ -49,24 +49,6 @@
 如果需要自定义应用名称的话，需要在适当位置用下面的方法手动添加埋点代码：
 
 ```php
-/**
- * 请求服务前执行
- * @param  $func eg.  'App\Login\Weibo::login'
- * @param  $serviceName 必须和创建应用时候服务名一致 eg. 'user'
- * @param  $serverIp eg. '192.1.1.1'
- * @return StatsCenter_Tick object
- */
-$tick = \SwooleTracker\Stats::beforeReqRpc($func, $serviceName, $serverIp);
-  
-/*
- * 请求服务后执行
- * @param $tick  StatsCenter_Tick object
- * @param $ret   true/false
- * @param $errno 201
- * @return void
- */
-\SwooleTracker\Stats::afterReqRpc($tick, $ret, $errno);
-
  /**
  * 被调用开始前执行
  * @param  $func eg.  'App\Login\Weibo::login'
@@ -87,8 +69,6 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp);
 ```
 
 ### 实例说明
-
-`A`请求或调用`B`时，在`A`请求服务`B`的代码前在加上`beforeReqRpc()`方法，结束时加上`afterReqRpc()`方法，此时后台可以统计到`A`调`B`的`这次`调用的成功、失败、耗时等信息，这组函数是站在调用端的角度的。
 
 微服务框架一般都有统一的服务入口，在`B`的服务入口处(开始)加上`beforeExecRpc()`方法，服务出口处(结束)加上`afterExecRpc()`方法。此时后台可以统计到`B`被调用的所有链路信息，例如这次调用的 `mysql` `redis` 等调用都会在`afterExecRpc()`后上报，这组函数是站在被调用端角度的。
 
