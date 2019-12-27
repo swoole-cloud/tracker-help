@@ -1,6 +1,6 @@
-[TOC]
-
-**一切问题先检查客户端、`swoole_tracker`扩展、服务端版本是否一致，是否为最新发布版本**
+**1. 一切问题先检查客户端、`swoole_tracker`扩展、服务端版本是否一致，是否为最新发布版本；
+2. 客户端Agent服务是否启动；
+3. 安装扩展完成以后是否重启客户端 Server 服务或 php-fpm 服务；**
 
 >[success] swoole_tracker扩展的发布版本可能会出现比客户端、服务端高，这个不影响。
 
@@ -26,6 +26,8 @@ apm.sampling_rate=100
 * 查看服务端版本
 
 ![](images/screenshot_1565061881319.png)
+
+[TOC]
 
 ## 1. 找不到对应应用
 
@@ -74,7 +76,7 @@ systemctl restart node-agent
 
 来启动/停止/重启NodeAgent（非root用户需要sudo）
 
-## 5. 增加调试器中的相关代码后报错： `Fatal error: Uncaught Exception: plz set apm.enable_memcheck=1 which in php.ini`
+## 5. 增加调试器中的相关代码后报错： Fatal error: Uncaught Exception: plz set apm.enable_memcheck=1 which in php.ini
 
 解决方法：在 `php.ini` 中添加配置： `apm.enable_memcheck=1`
 
