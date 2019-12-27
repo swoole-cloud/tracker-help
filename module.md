@@ -1,5 +1,6 @@
 [TOC]
 ## 新增应用
+>[danger] 默认会自动创建应用，无需手动新增应用！！！
 
 * 系统管理->项目管理->应用管理->新增应用
 ![应用管理.png](images/1552255630467-acfefbd6-d61b-43e0-a0af-dbfa7546373a.png)
@@ -18,7 +19,7 @@
 * 系统管理->项目管理->应用管理->修改按钮
 ![image.png](images/1552257318345-f55aa23b-e7d4-4d68-a72b-dc3303fa094d-20190806131635137.png)
 
-### 别名
+### 应用别名
 
 可自定义别名，别名在左侧菜单栏中优先显示。
 
@@ -37,6 +38,8 @@
 系统管理->项目管理->应用管理->合并应用
 
 ![image.png](images/watermark,type_d3F5LW1pY3JvaGVp,size_14,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10-20190806131721452.png)
+
+>[danger] 合并应用后，需要重启客户端 Agent 和对应 service 服务或 fpm进程。
 
 ### 新增合并
 
