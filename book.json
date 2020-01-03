@@ -8,6 +8,7 @@
             "defaultLanguage": "markup"
         },
         "theme-default": {
+            "auto_open": true,
             "show_nav": true,
             "logo": {
                 "image": "https://img.kancloud.cn/4e/45/4e45172f86ac746e40eb69c2827ae271_157x77.png",
