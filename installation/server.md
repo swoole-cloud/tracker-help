@@ -66,12 +66,12 @@ dnf install docker-ce
 ### 脚本说明
 
 ```shell
-build.sh # 构建脚本
-run.sh # 启动admin
-stop.sh # 停止admin
-restart.sh # 重启admin进程
-kill.sh # 强制关闭admin进程
-rm.sh # 删除admin的容器
+build.sh   #构建脚本
+run.sh     #启动admin
+stop.sh    #停止admin
+restart.sh #重启admin进程
+kill.sh    #强制关闭admin进程
+rm.sh      #删除admin的容器
 ```
 
 ## 重装
@@ -84,7 +84,3 @@ rm.sh # 删除admin的容器
 
 >[danger] 重装后需要重启客户端的`node-agent`进程、`fpm`进程以及`Service`进程；
 
-## 细节
-
-1. `./build.sh`会自动创建好镜像
-2. `./run.sh`会启动四个容器，分别是`php-fpm(swoole-admin)`, `mysql`, `redis`, `nginx` , 数据库为已经初始化状态的, 可以开箱即用
