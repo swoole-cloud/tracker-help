@@ -77,19 +77,19 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp);
 ```php
 /**
  * 被调用开始前执行
- * @param  $func eg.  'App\Login\Weibo::login'
- * @param  $serviceName 必须和创建应用时候服务名一致 eg. 'user'
- * @param  $serverIp eg. '192.1.1.1'
+ * @param $func eg.  'App\Login\Weibo::login'
+ * @param $serviceName 必须和创建应用时候服务名一致 eg. 'user'
+ * @param $serverIp eg. '192.1.1.1'
  * @param string $traceId
  * @param string $spanId
- * @return StatsCenter_Tick object
+ * @return SwooleTracker\Tick object
  */
-$tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp, $traceId, $spanId);
+$tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp, $traceId = "", $spanId = "");
 
 /**
  * 被调用结束后执行
- * @param $tick  StatsCenter_Tick object
- * @param $ret   true/false
+ * @param $tick SwooleTracker\Tick object
+ * @param $ret true/false
  * @param $errno 201
  * @return void
  */
