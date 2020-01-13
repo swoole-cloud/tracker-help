@@ -60,7 +60,15 @@ ENTRYPOINT [ "sh", "-x", "/opt/swoole/entrypoint.sh" ]
 ```
 
 ### 启用扩展
+#### 安装依赖
+swoole-tracker依赖mysqlnd, pdo, curl, json扩展，需要在你的docker镜像里添加这几个依赖的扩展
 
+对于官方镜像，他们提供了docker-php-ext-install 命令，可以使用
+```dockerfile
+mysqli pdo pdo_mysql curl json
+```
+来添加这些扩展
+#### 安装tracker扩展
 对于官方镜像php:fpm系列，php(-fpm)默认读取/usr/local/etc/php/conf.d下的配置文件，默认的entrypoint会将"-"开头的参数作为fpm启动参数，因此可以采用以下方式启用swoole_tracker扩展
 
 在Dockerfile添加配置文件：
@@ -91,6 +99,8 @@ docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextensi
 
 ### 配置docker安全选项
 
+> 仅在使用部分调试器功能（如阻塞检测，内存泄漏检测等）时需要进行这些配置
+
 扩展中使用了默认权限不允许的系统调用，使用了docker默认seccomp配置不允许的系统调用，需要额外配置：
 
 >[success] 参考[https://docs.docker.com/engine/security/seccomp/](https://docs.docker.com/engine/security/seccomp/)
@@ -100,6 +110,7 @@ docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextensi
 对于seccomp，可以修改seccomp配置，或关闭seccomp配置（不推荐，这将导致docker内程序可以执行create_module，kexec_load等危险系统调用）
 
 ### 修改seccomp配置
+> 仅在使用部分调试器功能（如阻塞检测，内存泄漏检测等）时需要进行这些配置
 
 修改seccomp配置文件（修改自[默认文件](https://github.com/moby/moby/blob/master/profiles/seccomp/default.json))）:
 
@@ -165,7 +176,7 @@ services:
       - "seccomp=/path/to/that/modified/profile.json"
 ```
 
-### 关闭seccomp（不推荐）
+#### 关闭seccomp（不推荐）
 
 与修改配置类似，但不需要创建json，将 `seccomp=/path/to/that/modified/profile.json` 换成`seccomp=unconfined`即可
 
@@ -182,10 +193,11 @@ cd /some/place/swoole-tracker/node-agent
 docker run \
  --name nodeagent \
  -d --cap-add SYS_PTRACE \
- --security-opt seccomp=unconfined \
+ --security-opt seccomp=/path/to/modified/json \
  --entrypoint /opt/swoole/script/php/swoole_php \
- -v /tmp:/tmp:rw \
- -v /opt/swoole:/opt/swoole:rw \
+ -v /var/run:/var/run:rw,rshared,z \
+ -v /tmp:/tmp:rw,rshared,z \
+ -v /opt/swoole:/opt/swoole:rw,rshared,z \
  alpine:edge \
  /opt/swoole/node-agent/src/node.php
 # 开启cgi容器
@@ -194,8 +206,9 @@ docker run \
  -d \
  --pid="container:nodeagent" \
  --net="container:nodeagent" \
- -v /tmp:/tmp:rw \
- -v /opt/swoole:/opt/swoole:rw \
+ -v /var/run:/var/run:rw,rshared,z \
+ -v /tmp:/tmp:rw,rshared,z \
+ -v /opt/swoole:/opt/swoole:rw,rshared,z \
  -v php:7.3-fpm
 ```
 ## 管理客户端进程
