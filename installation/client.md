@@ -61,7 +61,7 @@ ENTRYPOINT [ "sh", "-x", "/opt/swoole/entrypoint.sh" ]
 
 ### 启用扩展
 #### 安装依赖
-swoole-tracker依赖mysqlnd, pdo, curl, json扩展，需要在你的docker镜像里添加这几个依赖的扩展
+swoole_tracker依赖mysqlnd, pdo, curl, json扩展，需要在你的docker镜像里添加这几个依赖的扩展
 
 对于官方镜像，他们提供了docker-php-ext-install 命令，可以使用
 ```dockerfile
