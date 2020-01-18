@@ -103,8 +103,11 @@ systemctl restart node-agent
 扩展需要放在pdo扩展后面加载。使用`php --ini | grep "Scan for additional .ini files in:"`查看第三方加载目录，在此目录中创建一个`swoole_tracker`的配置
 ![](images/screenshot_1566982265088.png)
 
-
 ## 10. 加载扩展后报错`undefined symbol: compiler_globals in Unknown`
 
 扩展支持`nts`非线程安全版本PHP，可使用命令`php -v`查看
 ![](images/screenshot_1566982251150.png)
+
+## 11. 客户端运行报错 sw_get_entrypoint()：ERROR：mkdir error, make sure that start the agent first (Premission denied).
+
+请使用 root 用户启动 Agent服务，没有启动 Agent 服务并且不是使用 root 用户启动时会报这个错误
