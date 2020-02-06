@@ -22,6 +22,7 @@ apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 2. ioncube loader
 3. zend guard loader
 4. xhprof
+5. swoole_loader （加密后的代码不能进行分析）
 
 ### 3. 运行
 
