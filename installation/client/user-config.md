@@ -8,6 +8,8 @@
 system_report = 1
 #机器系统信息上报间隔时间　单位/s
 system_report_interval = 60
+#worker进程数
+system_worker_num = 1
 
 #文件监控上报间隔时间 单位/s
 [file_monitor_interval]
