@@ -111,3 +111,7 @@ systemctl restart node-agent
 ## 11. 客户端运行报错 sw_get_entrypoint()：ERROR：mkdir error, make sure that start the agent first (Premission denied).
 
 请使用 root 用户启动 Agent服务，没有启动 Agent 服务并且不是使用 root 用户启动时会报这个错误
+
+## 12. 业务开启进程数较多或动态调整进程数模式，导致客户端agent的worker进程占用cpu过高
+
+解决方法是优化业务的最低进程数；或者合理修改客户端agent的worker进程数，修改[配置文件](./installation/client/user-config.md)中的`system_worker_num`
