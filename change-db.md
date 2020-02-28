@@ -6,7 +6,7 @@
 
 安装前可修改MySQL和Redis存储配置，修改方式如下：
 
-1. 更换MySQL数据库，需要将`swoole-admin/sql/apm_base.sql`文件中的SQL进行导入来创建数据库和表。
+1. 更换MySQL数据库，需要将`swoole-admin/sql/apm_base.sql`文件中的SQL进行导入到新的数据库中，用来创建数据库和表。
 
 >[info] 因为`apps`和`common`目录的配置文件都是加密的，所以请先修改`docker`目录下的配置文件，然后复制到对应目录。
 
