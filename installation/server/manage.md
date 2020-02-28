@@ -1,3 +1,9 @@
+执行命令进入容器
+```bash
+docker exec -it -e LINES=$(tput lines) -e COLUMNS=$(tput cols) swoole-admin-fpm-0 bash
+```
+进入容器后，可执行以下命令管理Server进程
+
 ## 停止/启动
 ```bash
 ps -ef|grep trace-server|grep -v grep|awk '{print $2}'|xargs kill -9
