@@ -21,6 +21,6 @@
 * [接口管理](interface.md)
 * [用户管理](user.md)
     * [第三方登录](user/oauth-login.md)
-* [更换数据库](change-db.md)
+* [更换数据存储](change-db.md)
 * [对外开放API](api.md)
 * [联系我们](contact-us.md)

@@ -1,8 +1,27 @@
-## 此处显示当前服务开启状态
+我们提供以下两种修改方式
 
-![image.png](images/watermark,type_d3F5LW1pY3JvaGVp,size_14,text_6K-G5rKD572R57uc54mI5p2D5omA5pyJ,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10-20190806135622593.png)
+[TOC]
 
-## 如需更换到自己的数据库请按如下操作
+## 安装前修改
+
+安装前可修改MySQL和Redis存储配置，修改方式如下：
+
+>[info] 因为`apps`和`common`目录的配置文件都是加密的，所以请先修改`docker`目录下的配置文件，然后复制到对应目录。
+
+1. 修改`apps`目录的配置
+```bash
+cp docker/swoole-admin-apps-conf/db.php swoole-admin/center/web/apps/configs/product/db.php
+```
+2. 修改`common`目录的配置
+```bash
+cp docker/swoole-admin-common-conf/*  swoole-admin/center/common/configs/product
+```
+
+## 安装后修改
+
+>[danger] 安装后在线修改只能修改MySQL部分，未提供修改Redis功能。
+
+后台提供了在线切换MySQL数据库的功能，如需更换到自己的数据库请按如下操作
 
 - 将自己数据库配置填写进红框1
 - 选择红框2并点击提交，将会检测数据库是否可以连接，如果可以则会关闭服务
