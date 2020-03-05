@@ -16,7 +16,11 @@
 
 安装完成后默认无密码
 
->[danger] 因`clickhouse`安装配置不一定相同，所以这里不做任何限制，部署前需要修改相关配置信息。文件路径`swoole-tracker/swoole-admin-docker/docker/swoole-admin-common-conf/clickhouse.php`
+>[danger] 因`clickhouse`安装配置不一定相同，所以这里不做任何限制，均为默认配置，部署前如果需要请修改此配置信息，文件路径`docker/swoole-admin-common-conf/clickhouse.php`，修改完成后覆盖原配置文件。
+
+```bash
+cp docker/swoole-admin-common-conf/clickhouse.php swoole-admin/center/common/configs/product/clickhouse.php
+```
 
 ## 添加数据表
 
