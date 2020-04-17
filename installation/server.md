@@ -78,6 +78,8 @@ rm.sh      #删除admin的容器
 
 如果不想保留之前的数据，`rm`掉整个 `swoole-admin-docker` 目录，如果想保留之前的数据请保留 `swoole-admin-docker/data` 目录
 
+>[danger] 请不要随意移动`swoole-admin-docker/data` 目录，可能会导致文件权限、用户组等错误，后台无法正常访问。
+
 >[info] 升级版本可能会涉及数据库文件，请删掉`swoole-admin-docker/data`目录
 
 然后再解压压缩包，执行`./build.sh ./run.sh`
