@@ -80,8 +80,6 @@ rm.sh      #删除admin的容器
 
 >[danger] 请不要随意移动`swoole-admin-docker/data` 目录，可能会导致文件权限、用户组等错误，后台无法正常访问。
 
->[info] 升级版本可能会涉及数据库文件，请删掉`swoole-admin-docker/data`目录
-
 然后再解压压缩包，执行`./build.sh ./run.sh`
 
 >[danger] 重装后需要重启客户端的`node-agent`进程、`fpm`进程以及`Service`进程；
