@@ -116,6 +116,8 @@ systemctl restart node-agent
 
 解决方法是优化业务的最低进程数；或者合理修改客户端agent的worker进程数，修改[配置文件](./installation/client/user-config.md)中的`system_worker_num`
 
-## 13. 以上2、3、7、8问题中查看后依旧无信息
+## 13. 以上的2、3、7、8问题查看后依旧无信息
 
 如果你将服务单独使用Docker（单独的NodeAgent容器）进行部署的，需要检测对应的网络连接是否通畅，即检查是否在同一网段内。
+
+可使用`telnet`等工具测试上文中的对应端口。
