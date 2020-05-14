@@ -201,6 +201,7 @@ docker run \
  -v /opt/swoole:/opt/swoole:rw,rshared,z \
  alpine:edge \
  /opt/swoole/node-agent/src/node.php
+
 # 开启cgi容器
 docker run \
  --name cgi1 \
@@ -212,6 +213,7 @@ docker run \
  -v /opt/swoole:/opt/swoole:rw,rshared,z \
  -v php:7.3-fpm
 ```
+
 ## 管理客户端进程
 
 查看 [常见问题](../qa.md) 中的「管理NodeAgent守护进程」
