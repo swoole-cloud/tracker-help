@@ -12,6 +12,9 @@ apm.sampling_rate=100  #采样率 100%
 
 #开启内存泄漏检测需要添加
 apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
+
+# 默认访问本地agent，需要指定ip时再配置
+apm.agent_host=127.0.0.1
 ```
 >[danger] `enable`为 1 时表示调用统计百分百拦截并上报
 > `sampling_rate`采样率只作用于链路追踪，设置为 100 则表示每次请求都会生成一条 trace 数据
