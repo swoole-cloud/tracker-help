@@ -40,6 +40,8 @@
 
 ### Service上报指南
 
+>[danger] 暂不支持多端口监听。
+
 #### 自动上报
 
 系统支持自动生成应用名称并创建应用，无需修改任何代码
@@ -94,4 +96,16 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp, $tra
  * @return void
  */
 \SwooleTracker\Stats::afterExecRpc($tick, $ret, $errno);
+```
+
+>[danger] 如果需要透传并且调用端使用`Swoole\Coroutine\Http\Client`进行调用，则需要修改调用端代码，调用扩展提供的两个方法，同时增加两个`header`，如：
+
+```php
+$client->setHeaders(array_merge(
+    [
+        'x-swoole-traceid' => getSwooleTrackerTraceId(),
+        'x-swoole-spanid' => getSwooleTrackerSpanId(),
+    ],
+    $client->requestHeaders
+));
 ```
