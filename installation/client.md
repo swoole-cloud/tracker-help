@@ -6,14 +6,15 @@
 
 在 `php.ini` 中加入以下配置
 ```ini
-extension=swoole_tracker.so 
-apm.enable=1           #打开总开关
-apm.sampling_rate=100  #采样率 100%
+extension=swoole_tracker.so
 
-#开启内存泄漏检测需要添加
-apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
-
-# 默认访问本地agent，需要指定ip时再配置
+;打开总开关
+apm.enable=1
+;采样率 例如：100%
+apm.sampling_rate=100
+;开启内存泄漏检测时添加 默认0 关闭状态
+apm.enable_memcheck=1
+;默认访问本地agent，需要指定ip时再配置
 apm.agent_host=127.0.0.1
 ```
 >[danger] `enable`为 1 时表示调用统计百分百拦截并上报

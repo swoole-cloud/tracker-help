@@ -11,7 +11,7 @@
 * 查看 `swoole_tracker` 扩展版本
 
 ```ini
-# php.ini不要忘了添加
+;php.ini不要忘了添加
 extension=swoole_tracker.so
 apm.enable=1
 apm.sampling_rate=100
