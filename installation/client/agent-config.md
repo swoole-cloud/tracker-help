@@ -10,7 +10,7 @@
 >[danger] 首先说明一下此配置是做什么的：
 此配置是用来智能生成`调用统计`中的接口名称的。具体什么是智能生成接口名称，可参考[此视频教程](https://course.swoole-cloud.com/course-video/49)的8分30秒有讲解。
 智能接口生成是依赖业务代码的文件名的，只有函数定义在这些文件名里面才会生成智能接口，默认的关键字为`"App", "Controller", "Model", "wp-includes"`。
-以`"App"`为例，当你的一个请求调用了`App\Controllers\Index.php`中的`test()`方法，而此test方法调用了PDO的查库语句，因为`App\Controllers\Index.php`包含`"App"`关键字，所以生成的接口名为：`App\Controller\Index::test()[(PDO::query)]`。
+以`"App"`为例，当你的一个请求调用了`App\Controller\Index.php`中的`test()`方法，而此test方法调用了PDO的查库语句，因为`App\Controller\Index.php`包含`"App"`关键字，所以生成的接口名为：`App\Controller\Index::test()[(PDO::query)]`。
 
 当想调整默认的文件名关键字的时候，就可以修改此`config_white_list.conf`配置文件，并重启Fpm/Swoole进程。
 
