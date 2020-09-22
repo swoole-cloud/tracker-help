@@ -5,6 +5,7 @@
 ## 安装前修改
 
 安装前可修改MySQL和Redis存储配置，修改方式如下：
+>[danger] MySQL版本需要 >= 5.7.25
 
 1. 更换MySQL数据库，需要将`swoole-admin/sql/apm_base.sql`文件中的SQL进行导入到新的数据库中，用来创建数据库和表。
 
