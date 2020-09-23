@@ -109,7 +109,7 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp);
     //伪代码
     $traceId =  getSwooleTrackerTraceId();//获取当前traceId
     $spanId = genSwooleTrackerSpanId();//生成一个新的spaId
-    //开始请求前调用，注意函数名和Rpc服务端的不一样
+    //开始请求前调用，注意函数名是before**Req**Rpc
     $tick = \SwooleTracker\Stats::beforeReqRpc($func, $serviceName, $serverIp);
     
     /*
@@ -120,7 +120,7 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp);
     $r = $testClient->client->hello('swoole!'. '|'. $traceId . '|'. $spanid);
     
     
-    //rpc请求结束后调用，注意函数名和Rpc服务端的不一样
+    //rpc请求结束后调用，注意函数名是after**Req**Rpc
     \SwooleTracker\Stats::afterReqRpc($tick, $ret, $errno);
    ```  
 
