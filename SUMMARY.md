@@ -25,3 +25,4 @@
     * [第三方登录](user/oauth-login.md)
 * [对外开放API](api.md)
 * [联系我们](contact-us.md)
+* [免费内存检测工具](免费内存检测工具.md)
