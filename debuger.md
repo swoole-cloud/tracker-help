@@ -96,7 +96,7 @@ endXhprof();
 
 ### 内存泄漏
 
->[danger]  ⚠️此功能仅支持 PHP71+ 版本，即PHP71、PHP72、PHP73
+>[danger]  ⚠️此功能仅支持 PHP71+ 版本，即PHP71、PHP72、PHP73，在`Swoole Tracker 3.0+`版本推荐使用[此工具]()检测泄漏
 
 在客户端需要进行内存泄漏检测的代码中进行手动埋点
 
