@@ -1,8 +1,11 @@
 [TOC]
 ## 依赖
+
+tracker的服务端是用来处理tracker客户端上报的数据，并展示给别人看的。
+
 ### 安装docker和docker-compose
-tracker的服务端是用来处理tracker客户端上报的数据，并展示给别人看的，
-系统依赖docker和docker-compose.
+
+系统依赖docker和docker-compose
 
 如果不了解如何部署docker，使用以下命令来进行安装（需要root权限）
 
