@@ -1,6 +1,6 @@
 [TOC]
 
-## 直接部署
+## 直接部署(非docker的客户端环境)
 
 ### 1. 安装对应的`swoole_tracker`扩展
 
@@ -28,13 +28,13 @@ apm.agent_host=127.0.0.1
 4. xhprof
 5. swoole_loader （加密后的代码不能进行分析）
 
-### 3. 运行
+### 3. 运行agent
 
 在 node-agent 的目录下的命令行中执行 `./deploy_env.sh 127.0.0.1`。(`127.0.0.1`为admin后台的机器ip)
 
-### 4. 重启服务
+### 4. 重启PHP服务
 
-安装完成后，需要**重启对应的 SwooleServer 或者 php-fpm 服务**，发生请求后稍等片刻，等待服务端接收客户端发送的数据。
+安装完成扩展后，需要**重启对应的 SwooleServer 或者 php-fpm 服务**，**并且发生请求**后稍等片刻，等待tracker服务端接收客户端发送的数据。
 
 ## 在Docker部署
 
