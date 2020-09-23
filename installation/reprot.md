@@ -104,8 +104,34 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp, $tra
 $client->setHeaders(array_merge(
     [
         'x-swoole-traceid' => getSwooleTrackerTraceId(),
-        'x-swoole-spanid' => getSwooleTrackerSpanId(),
+        'x-swoole-spanid' => genSwooleTrackerSpanId(),
     ],
     $client->requestHeaders
 ));
+```
+
+#### RPC
+
+需要关联RPC链路追踪时，服务端和客户端都需要进行手动埋点。
+
+服务端的埋点方法同上文，客户端需要在调用时添加埋点，代码如下
+
+```php
+/**
+ * 客户端调用开始前执行
+ * @param $func eg.  'App\Login\Weibo::login'
+ * @param $serviceName 必须和创建应用时候服务名一致 eg. 'user'
+ * @param $serverIp eg. '192.1.1.1'
+ * @return SwooleTracker\Tick object
+ */
+$tick = \SwooleTracker\Stats::beforeReqRpc($func, $serviceName, $serverIp);
+
+/**
+ * 客户端调用结束后执行
+ * @param $tick SwooleTracker\Tick object
+ * @param $ret true/false
+ * @param $errno 201
+ * @return void
+ */
+\SwooleTracker\Stats::afterReqRpc($tick, $ret, $errno);
 ```
