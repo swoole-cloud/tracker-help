@@ -15,6 +15,7 @@
 * [链路追踪](application-tracking.md)
 * [调试器适用场景](debug-explain.md)
 * [调试器](debuger.md)
+* [免费内存检测工具](leak.md)
 * [Agent列表](agent-list.md)
 * [机器信息](sysinfo.md)
 * [报警管理](alert.md)
@@ -25,4 +26,3 @@
     * [第三方登录](user/oauth-login.md)
 * [对外开放API](api.md)
 * [联系我们](contact-us.md)
-* [免费内存检测工具](免费内存检测工具.md)
