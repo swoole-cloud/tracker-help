@@ -22,3 +22,4 @@
 * [更换数据库](change-db.md)
 * [对外开放API](api.md)
 * [联系我们](contact-us.md)
+* [免费内存检测工具](免费内存检测工具.md)
