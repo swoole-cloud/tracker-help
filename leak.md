@@ -6,13 +6,13 @@
 
 ## 内存申请 TopN 检测：
 
-有的 PHP 代码没有内存泄漏，但是代码中如果有特别大的内存申请，这会带来两个问题：一是大内存申请会有性能问题，二是在一瞬间可能达到 PHP 的 `memory_limit` 限制而报错，`Swoole Tracker v3.0.1+`版本增加了这种行为的分析功能，用法和上文的`内存泄漏检测`类似，下面是例子：
+有的 PHP 代码没有内存泄漏，但是代码中如果有特别大的内存申请，这会带来两个问题：一是大内存申请会有性能问题，二是在一瞬间可能达到 PHP 的 `memory_limit` 限制而报错，`Swoole Tracker` v3.0.1+ 版本增加了这种行为的分析功能，用法和上文的`内存泄漏检测`类似，下面是例子：
 
 ```php
 $http->on("request", function($request, $response) {
     trackerHookMalloc();//标记为循环体函数，之后每次请求都会打日志
 
-    $req->test = str_repeat("big string", 1024);//超大内存申请
+    $request->test = str_repeat("big string", 1024);//超大内存申请
     $response->end("hello");
 });
 ```
