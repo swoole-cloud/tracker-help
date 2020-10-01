@@ -61,6 +61,8 @@ dnf install docker-ce
 
 运行`./run.sh`后 直接访问当前机器的`ip:9666`即可，默认用户名是`admin`密码为`admin`
 
+>[info] 默认端口为`9666`，如果需要修改，编辑`docker/nginx/conf.d/swoole-admin.conf`，修改`listen`为对应端口即可。
+
 >[danger] 安装完成后首次访问如果报错`500`，请将`data`目录删掉，执行`./kill.sh ./rm.sh`后，重新执行安装步骤。
 
 ## 关闭Admin后台

@@ -2,7 +2,7 @@
 
 ## 内存泄漏检测：
 
-不同于[调试器](debuger.md)中的内存泄漏检测，3.0+的泄漏检测理论更先进，具体用法参考[此篇文章](https://mp.weixin.qq.com/s?__biz=MzIyMDkxMTIwNA==&mid=2247483839&idx=1&sn=ead68d219925b7a17602cc37219be056&chksm=97c582b4a0b20ba21a43721172ef6500442a4abfe6a95b878f82df9dc26518dbb4d1f3182c9e&mpshare=1&scene=23&srcid=09152cYGQgLTmZEuUQwaJAQt&sharer_sharetime=1600152472209&sharer_shareid=fcf66e3aa3ef36f1935f2c3ab766f0a0#rd)。
+不同于[调试器](debuger.md)中的内存泄漏检测，3.0+的泄漏检测理论更先进，具体用法参考[此篇文章](https://mp.weixin.qq.com/s/oAyToE4aNyU3-_PQ5ii3aw)。
 
 ## 内存申请 TopN 检测：
 
