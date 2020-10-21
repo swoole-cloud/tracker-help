@@ -24,11 +24,11 @@
 
 ## 自动创建应用
 
-如果您的 Cli 应用是 `Swoole` 的 `HttpServer` 那么会在发生请求后自动生成应用，名称为`host:port`
+如果您的 Cli 应用是 `Swoole` 的 `HttpServer` 那么会在发生请求后（OnRequest）自动生成应用，名称为`host:port`
 
-如果您的 Cli 应用是 `Swoole` 的其他类型`Server` 那么会在发生请求后自动生成应用，名称为`ip:port`
+如果您的 Cli 应用是 `Swoole` 的其他类型`Server` 那么会在发生请求后（OnRecive）自动生成应用，名称为`ip:port`
 
->[danger] 自动创建应用不支持 Swoole 的多端口监听，也不支持[协程风格的 Swoole 服务端](https://wiki.swoole.com/#/server/co_init)。
+>[danger] 当您使用了 Swoole 的多端口监听，自动生成的应用名称只会使用主端口，其他的端口不会生成应用，其他端口的请求拦截到的数据会算到主端口这个应用里面。同时[协程风格的 Swoole 服务端](https://wiki.swoole.com/#/server/co_init)不支持自动创建应用。
 
 <!--###
 ## 手动创建应用
