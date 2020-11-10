@@ -99,7 +99,7 @@ services:
 或在docker run命令中添加启动参数
 
 ```dockerfile
-docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextension=/path/to/swoole_tracker7x.so``
+docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextension=/path/to/swoole_tracker7x.so
 ```
 
 ### 配置docker安全选项
@@ -117,7 +117,7 @@ docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextensi
 ### 修改seccomp配置
 > 仅在使用部分调试器功能（如阻塞检测，内存泄漏检测等）时需要进行这些配置
 
-修改seccomp配置文件（修改自[默认文件](https://github.com/moby/moby/blob/master/profiles/seccomp/default.json))）:
+修改seccomp配置文件（修改自[默认文件](https://github.com/moby/moby/blob/master/profiles/seccomp/default.json)）:
 
 ```bash
 --- a.json
