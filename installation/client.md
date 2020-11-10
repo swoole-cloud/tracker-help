@@ -215,7 +215,7 @@ docker run \
  -v /var/run:/var/run:rw,rshared,z \
  -v /tmp:/tmp:rw,rshared,z \
  -v /opt/swoole:/opt/swoole:rw,rshared,z \
- -v php:7.3-fpm
+ php:7.3-fpm
 ```
 
 ## 管理客户端进程
