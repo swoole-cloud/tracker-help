@@ -126,3 +126,7 @@ systemctl restart node-agent
 ## 14. Agent列表的某个机器为红色
 
 先查看Agent连接是否正常，如果正常请检查该机器的系统时间是否正常。
+
+## 15. 报错：PHP Startup: apm.enable and apm.enable_malloc_hook can't be turned on together, reset apm.enable=0
+
+开启了`apm.enable_malloc_hook =1`之后其他的功能均不可用，只能进行内存泄漏检测。
