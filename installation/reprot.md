@@ -79,7 +79,7 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp);
 
 - `FPM/Cli` 通过`Curl`调用另外一个`Cli`的服务
 
-这种情况需要在 Cli 的服务端的服务入口和出口加上两个函数，分别是 `beforeExecRpc` 和 afterExecRpc`：
+这种情况需要在 Cli 的服务端的服务入口和出口加上两个函数，分别是 `beforeExecRpc` 和 `afterExecRpc`：
 
 ```php
 //伪代码
