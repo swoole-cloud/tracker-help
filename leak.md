@@ -2,19 +2,4 @@
 
 ## 内存泄漏检测：
 
-不同于[调试器](debuger.md)中的内存泄漏检测，3.0+的泄漏检测理论更先进，具体用法参考[此篇文章](https://mp.weixin.qq.com/s/oAyToE4aNyU3-_PQ5ii3aw)。
-
-## 内存申请 TopN 检测：
-
-有的 PHP 代码没有内存泄漏，但是代码中如果有特别大的内存申请，这会带来两个问题：一是大内存申请会有性能问题，二是在一瞬间可能达到 PHP 的 `memory_limit` 限制而报错，`Swoole Tracker` v3.0.1+ 版本增加了这种行为的分析功能，用法和上文的`内存泄漏检测`类似，下面是例子：
-
-```php
-$http->on("request", function($request, $response) {
-    trackerHookMalloc();//标记为循环体函数，之后每次请求都会打日志
-
-    $request->test = str_repeat("big string", 1024);//超大内存申请
-    $response->end("hello");
-});
-```
-
-上述代码生成日志后，在任意位置执行`php -r "trackerAnalyzeMalloc(5);"` 会输出每次请求的最大的几次内存申请，其中的参数`5`代表只输出前 5 的大内存申请。
+不同于[调试器](debuger.md)中的内存泄漏检测，3.0+的泄漏检测理论更先进，具体用法参考[此篇文章](https://wenda.swoole.com/detail/107688)。
