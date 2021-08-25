@@ -7,6 +7,8 @@
 在 `php.ini` 中加入以下配置
 ```ini
 extension=swoole_tracker.so
+; v3.3.0版本开始修改为了Zend扩展
+zend_extension=swoole_tracker.so
 
 ;打开总开关
 apm.enable=1
