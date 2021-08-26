@@ -15,7 +15,7 @@ apm.sampling_rate=100
 ;开启内存泄漏检测时添加 默认0 关闭状态
 apm.enable_memcheck=1
 
-; v3.3.0版本开始修改为了Zend扩展
+;v3.3.0版本开始修改为了Zend扩展
 zend_extension=swoole_tracker.so
 tracker.enable=1
 tracker.sampling_rate=100
