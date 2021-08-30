@@ -10,7 +10,7 @@
 
 <!--### 自动创建应用-->
 
-默认 tracker 客户端装了扩展和 agent，并发生了请求，就会自动上报，服务端自动生成对应的应用，并上报监控数据。如果在后台关闭了自动创建应用（默认是开启自动创建的），则需要手动创建应用。
+默认 tracker 客户端安装了扩展和 agent，并发生了请求，就会自动上报，服务端自动生成对应的应用，并上报监控数据。如果在后台关闭了自动创建应用（默认是开启自动创建的），则需要手动创建应用。
 
 <!--### 手动创建应用
 
@@ -151,4 +151,27 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp, $tra
  *  执行真正的业务逻辑
  */
 \SwooleTracker\Stats::afterExecRpc($tick, $ret, $errno);//调用结束函数
+```
+
+# 设置应用名称
+
+通过使用`CURL`、`Co\Http\Client`等方式进行内部调用时，如果是直接基于 `ip:port` 的方式访问，一定要设置一个`host header`，这样可以让`Tracker`知道是哪个应用，否则会把 `ip:port` 当做应用名称。
+
+- CURL
+
+```php
+$headers  = array("Host: your_service_name"); 
+curl_setopt($ch,CURLOPT_HTTPHEADER, $headers);
+```
+
+- Co\Http\Client
+
+```php
+use Swoole\Coroutine\Http\Client;
+use function Swoole\Coroutine\run;
+
+run(function () {
+    $cli = new Client('127.0.0.1', 9502);
+    $cli->setHeaders(['Host' => 'your_service_name']);
+});
 ```
