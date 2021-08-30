@@ -155,6 +155,18 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp, $tra
 
 # 设置应用名称
 
+如果自动生成的应用名称不符合要求，可以通过两种方式进行设置：
+
+1. 手动调用API
+
+```php
+tracker_set_service_name('your_service_name');
+```
+
+> Swoole Tracker > v3.3.0 版本可用。
+
+2. 设置Host
+
 通过使用`CURL`、`Co\Http\Client`等方式进行内部调用时，如果是直接基于 `ip:port` 的方式访问，一定要设置一个`host header`，这样可以让`Tracker`知道是哪个应用，否则会把 `ip:port` 当做应用名称。
 
 - CURL
