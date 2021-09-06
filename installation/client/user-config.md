@@ -25,6 +25,14 @@ block = 10
 mem_leak = 10
 #调用栈
 bt = 10
+
+[zipkin]
+#zipkin地址
+host = 127.0.0.1
+port = 9411
+api = /api/v2/spans
+debug = 0
+log_file = /opt/swoole/logs/zipkin.log
 ```
 
 >[success] 修改配置后需要重启`NodeAgent`！！！

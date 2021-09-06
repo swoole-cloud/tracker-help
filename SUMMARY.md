@@ -7,6 +7,7 @@
     * [tracker客户端](installation/client.md)
         * [系统配置](installation/client/agent-config.md)
         * [自定义配置](installation/client/user-config.md)
+        * [链路追踪扩展](installation/client/trace_tlist.md)
     * [上报监控数据](installation/reprot.md)
 * [名词解释](noun-interpretation.md)
 * [常见问题](qa.md)
