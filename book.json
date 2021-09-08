@@ -16,13 +16,13 @@
             },
             "navs": [
                 {
-                    "title": "Swoole Tracker详细手册",
-                    "url": "https://www.kancloud.cn/swoole-inc/ee-help-wiki/content",
+                    "title": "Swoole Tracker 详细手册",
+                    "url": "http://wiki.tracker.swoole-cloud.com",
                     "target": false
                 },
                 {
                     "title": "基础手册",
-                    "url": "https://www.kancloud.cn/swoole-inc/ee-base-wiki/content",
+                    "url": "http://base-wiki.tracker.swoole-cloud.com",
                     "target": true
                 }
             ]
