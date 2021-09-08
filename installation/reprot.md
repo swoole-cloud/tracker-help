@@ -163,7 +163,7 @@ $tick = \SwooleTracker\Stats::beforeExecRpc($func, $serviceName, $serverIp, $tra
 tracker_set_service_name('your_service_name');
 ```
 
-> Swoole Tracker > v3.3.0 版本可用。
+>[danger] Swoole Tracker >= v3.3.0 版本可用。
 
 2. 设置Host
 
@@ -172,7 +172,7 @@ tracker_set_service_name('your_service_name');
 - CURL
 
 ```php
-$headers  = array("Host: your_service_name"); 
+$headers  = array('Host: your_service_name'); 
 curl_setopt($ch,CURLOPT_HTTPHEADER, $headers);
 ```
 
