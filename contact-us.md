@@ -1,6 +1,6 @@
 ## 官网地址
 
-[https://business.swoole.com](https://business.swoole.com/)
+https://business.swoole.com
 
 ## 客服微信
 
