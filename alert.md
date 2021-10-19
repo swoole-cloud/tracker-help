@@ -6,7 +6,7 @@
 
 ### 添加报警方式
 
->[danger] `http://notifyapi.swoole-cloud.com?appid=123&type=mp` 此地址为我司默认推送地址，已废弃。请自行处理报警信息。
+>[danger] `http://notifyapi.swoole-cloud.com?appid=123&type=mp` 此地址为我司默认推送地址，已废弃。**请自行处理报警信息。**
 
 填写对应的名称，以及接口地址
 
@@ -43,6 +43,20 @@
             }
     }
 }
+```
+
+> 如果有`ext-swoole`扩展的话，可以启动一个`HTTP Server`进行转发处理：
+
+```php
+$http = new Swoole\Http\Server('0.0.0.0', 9501);
+
+$http->on('Request', function ($request, $response) {
+    $data = $request->getContent();
+    var_dump($data); // 上文的json信息
+    $response->end('');
+});
+
+$http->start();
 ```
 
 ### 删除报警方式
