@@ -53,6 +53,8 @@ dnf install docker-ce
 
 ## 安装
 
+>[danger] 不要在Windows下操作解压后重新打包部署。
+
 1. 进入 `swoole-admin-docker`目录
 2. 执行 `./build.sh`
 3. 执行 `./run.sh`
