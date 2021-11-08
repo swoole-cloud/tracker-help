@@ -8,11 +8,11 @@ php.ini中需增加配置项目
 
 ```ini
 extension=swoole_trakcer.so 
-tracker.enable=1           #打开总开关
-tracker.sampling_rate=100  #采样率 100%
+apm.enable=1           #打开总开关
+apm.sampling_rate=100  #采样率 100%
 
 # 手动埋点时再添加
-tracker.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
+apm.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 ```
 
 ### 2. 卸载不兼容扩展
