@@ -1,44 +1,33 @@
 [TOC]
 
-## 直接部署(非docker的客户端环境)
+## 直接部署
 
-### 1. 安装对应的`swoole_tracker`扩展
+### 1. 安装对应的`swoole_trakcer`扩展
 
-在 `php.ini` 中加入以下配置
+php.ini中需增加配置项目
+
 ```ini
-extension=swoole_tracker.so
+extension=swoole_trakcer.so 
+tracker.enable=1           #打开总开关
+tracker.sampling_rate=100  #采样率 100%
 
-;打开总开关
-apm.enable=1
-;采样率 例如：100%
-apm.sampling_rate=100
-;开启内存泄漏检测时添加 默认0 关闭状态
-apm.enable_memcheck=1
-
-;v3.3.0版本开始修改为了Zend扩展
-zend_extension=swoole_tracker.so
-tracker.enable=1
-tracker.sampling_rate=100
-tracker.enable_memcheck=1
+# 手动埋点时再添加
+tracker.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 ```
->[danger] `enable`为 1 时表示调用统计百分百拦截并上报
-> `sampling_rate`采样率只作用于链路追踪，设置为 100 则表示每次请求都会生成一条 trace 数据
 
 ### 2. 卸载不兼容扩展
 
 1. xdebug
 2. ioncube loader
 3. zend guard loader
-4. xhprof
-5. swoole_loader （加密后的代码不能进行分析）
 
-### 3. 运行agent
+### 3. 运行
 
-在 node-agent 的目录下的命令行中执行 `./deploy_env.sh 127.0.0.1`。(`127.0.0.1`为admin后台的机器ip)
+在命令行中执行 `./deploy_env.sh 127.0.0.1`。(`127.0.0.1`为admin后台的机器ip)
 
-### 4. 重启PHP服务
+### 4. 重启服务
 
-安装完成扩展后，需要**重启对应的 SwooleServer 或者 php-fpm 服务**，**并且发生请求**后稍等片刻，等待tracker服务端接收客户端发送的数据。
+**重启swoole server或者php-fpm服务，然后稍等片刻，等待服务端接收客户端发送的数据。**
 
 ## 在Docker部署
 
@@ -69,15 +58,7 @@ ENTRYPOINT [ "sh", "-x", "/opt/swoole/entrypoint.sh" ]
 ```
 
 ### 启用扩展
-#### 安装依赖
-swoole_tracker依赖mysqlnd, pdo, curl, json扩展，需要在你的docker镜像里添加这几个依赖的扩展
 
-对于官方镜像，他们提供了docker-php-ext-install 命令，可以使用
-```dockerfile
-mysqli pdo pdo_mysql curl json
-```
-来添加这些扩展
-#### 安装tracker扩展
 对于官方镜像php:fpm系列，php(-fpm)默认读取/usr/local/etc/php/conf.d下的配置文件，默认的entrypoint会将"-"开头的参数作为fpm启动参数，因此可以采用以下方式启用swoole_tracker扩展
 
 在Dockerfile添加配置文件：
@@ -103,12 +84,10 @@ services:
 或在docker run命令中添加启动参数
 
 ```dockerfile
-docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextension=/path/to/swoole_tracker7x.so
+docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextension=/path/to/swoole_tracker7x.so``
 ```
 
 ### 配置docker安全选项
-
-> 仅在使用部分调试器功能（如阻塞检测，内存泄漏检测等）时需要进行这些配置
 
 扩展中使用了默认权限不允许的系统调用，使用了docker默认seccomp配置不允许的系统调用，需要额外配置：
 
@@ -119,9 +98,8 @@ docker run --other-arguments myphpfpm:1 -dextension=/path/to/swoole.so -dextensi
 对于seccomp，可以修改seccomp配置，或关闭seccomp配置（不推荐，这将导致docker内程序可以执行create_module，kexec_load等危险系统调用）
 
 ### 修改seccomp配置
-> 仅在使用部分调试器功能（如阻塞检测，内存泄漏检测等）时需要进行这些配置
 
-修改seccomp配置文件（修改自[默认文件](https://github.com/moby/moby/blob/master/profiles/seccomp/default.json)）:
+修改seccomp配置文件（修改自[默认文件](https://github.com/moby/moby/blob/master/profiles/seccomp/default.json))）:
 
 ```bash
 --- a.json
@@ -185,7 +163,7 @@ services:
       - "seccomp=/path/to/that/modified/profile.json"
 ```
 
-#### 关闭seccomp（不推荐）
+### 关闭seccomp（不推荐）
 
 与修改配置类似，但不需要创建json，将 `seccomp=/path/to/that/modified/profile.json` 换成`seccomp=unconfined`即可
 
@@ -196,32 +174,27 @@ services:
 ```bash
 # 在host安装NodeAgent（或者手动安装/opt/swoole的文件）
 cd /some/place/swoole-tracker/node-agent
-./deploy_env.sh 服务端IP
-
+./deploy_env.sh a.b.c.d
 # 开启NodeAgent容器
 docker run \
  --name nodeagent \
  -d --cap-add SYS_PTRACE \
- --security-opt seccomp=/path/to/modified/json \
+ --security-opt seccomp=unconfined \
  --entrypoint /opt/swoole/script/php/swoole_php \
- -v /var/run:/var/run:rw,rshared,z \
- -v /tmp:/tmp:rw,rshared,z \
- -v /opt/swoole:/opt/swoole:rw,rshared,z \
+ -v /tmp:/tmp:rw \
+ -v /opt/swoole:/opt/swoole:rw \
  alpine:edge \
  /opt/swoole/node-agent/src/node.php
-
 # 开启cgi容器
 docker run \
  --name cgi1 \
  -d \
  --pid="container:nodeagent" \
  --net="container:nodeagent" \
- -v /var/run:/var/run:rw,rshared,z \
- -v /tmp:/tmp:rw,rshared,z \
- -v /opt/swoole:/opt/swoole:rw,rshared,z \
- php:7.3-fpm
+ -v /tmp:/tmp:rw \
+ -v /opt/swoole:/opt/swoole:rw \
+ -v php:7.3-fpm
 ```
-
 ## 管理客户端进程
 
-查看 [常见问题](../qa.md) 中的「管理NodeAgent守护进程」
+查看 [常见问题](qa.md) 中的「管理NodeAgent守护进程」
