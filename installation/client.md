@@ -7,12 +7,19 @@
 php.ini中需增加配置项目
 
 ```ini
-zend_extension=swoole_trakcer.so 
-tracker.enable=1           #打开总开关
-tracker.sampling_rate=100  #采样率 100%
+extension=swoole_tracker.so
+;打开总开关
+apm.enable=1
+;采样率 例如：100%
+apm.sampling_rate=100
+;开启内存泄漏检测时添加 默认0 关闭状态
+apm.enable_memcheck=1
 
-# 手动埋点时再添加
-tracker.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
+;v3.3.0版本开始修改为了Zend扩展
+zend_extension=swoole_tracker.so
+tracker.enable=1
+tracker.sampling_rate=100
+tracker.enable_memcheck=1
 ```
 
 ### 2. 卸载不兼容扩展
@@ -20,6 +27,8 @@ tracker.enable_memcheck=1  #开启内存泄漏检测 默认0 关闭
 1. xdebug
 2. ioncube loader
 3. zend guard loader
+4. xhprof
+5. swoole_loader （加密后的代码不能进行分析）
 
 ### 3. 运行
 
